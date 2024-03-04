@@ -22,6 +22,7 @@
         <td th:text="${empleado.salario}">0</td>
         <td th:text="${empleado.enActivo}">bool</td>
         <td th:text="${empleado.genero}">genero</td>
+        <!--<td th:text="${empleado.imagen}">Imagen</td>-->
         <td><a th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a></td>
         <td><a th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></td>
     </tr>

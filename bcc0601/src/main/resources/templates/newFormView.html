@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Nuevo empleado</h1>
-<form method="post" action="#" th:action="@{/nuevo/submit}" th:object="${empleadoForm}">
+<form method="post" action="#" th:action="@{/nuevo/submit}" th:object="${empleadoForm}" enctype="multipart/form-data">
     <label>Id: <input type="text" id="id" th:field="*{id}" /> </label><br/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
     <div th:classappend="${#fields.hasErrors('email')} ? 'cssError'">
@@ -25,6 +25,7 @@
         <input type="radio" name="button1" th:value="${gen}" th:text="${gen}"
                th:field="*{genero}" />
     </div>
+    <!--<label>Añade Fotografía del Empleado:<input type="file" name="imagen"/></label><br/>-->
     <input type="submit" value="Enviar"/>
 </form>
 <a th:href="@{/}">Inicio</a><br/>

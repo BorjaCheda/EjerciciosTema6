@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.io.File;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,4 +30,5 @@ public class Empleado {
     private boolean enActivo;
 
     private Genero genero;
+
 }

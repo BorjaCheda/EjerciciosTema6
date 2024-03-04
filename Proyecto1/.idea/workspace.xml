@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1c59e92c-4578-4042-a076-2fb94361b30a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/prueba1.gIbi7Q.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Controllers/ClientsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Controllers/NumerosController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Controllers/RestNumController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Models/Clients.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Proyecto1Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Repositories/ClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/static/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/templates/formBase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/templates/listEmployees.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/templates/numeros.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/test/java/com/example/Proyecto1/Proyecto1ApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/static/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/templates/formBase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/templates/listEmployees.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/templates/numeros.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../README.mdgit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Bcc0601Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Bcc0601Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0601/src/main/resources/templates/editFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0601/src/main/resources/templates/editFormView.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2dEXdaPxSXdPc2Yw57onMETc0pH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1c59e92c-4578-4042-a076-2fb94361b30a" name="Changes" comment="" />
+      <created>1709574299679</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709574299679</updated>
+      <workItem from="1709574300700" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
