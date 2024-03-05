@@ -1,6 +1,9 @@
 package com.example.app.entity;
 
+import lombok.Data;
+
+@Data
 public class Producto {
 
-    private nombre;
+    private String nombre;
 }
