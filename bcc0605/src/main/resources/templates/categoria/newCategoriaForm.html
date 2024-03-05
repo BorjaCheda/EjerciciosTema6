@@ -23,22 +23,17 @@
             <li class="nav-item">
                 <a class="nav-link"  th:href="@{/producto/list}"><strong>Productos</strong></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/categoria/}"><strong>Categoria</strong></a>
+            </li>
         </ul>
     </div>
 </div>
 
-<h1>Nuevo Producto</h1>
-<form method="post" action="#" th:action="@{/producto/new/submit}" th:object="${productForm}">
+<h1>Nueva Categoría</h1>
+<form method="post" action="#" th:action="@{/categoria/new/submit}" th:object="${categoriaForm}">
     <label>Id: <input type="text" id="id" th:field="*{id}" /> </label><br/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
-    <label>En Oferta:<input type="checkbox" id="enOferta" th:field="*{enOferta}" ></label><br/>
-    Tipo de Iva:<br/>
-    <div th:each="tipoIva : ${T(com.example.app.entity.TipoIva).values()}">
-        <input type="radio" name="button1" th:value="${tipoIva}" th:text="${tipoIva}"
-               th:field="*{tipoIva}" />
-    </div>
-    <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br/>
-
     <input type="submit" value="Enviar"/>
 </form>
 <a th:href="@{/producto/}">Inicio</a><br/>

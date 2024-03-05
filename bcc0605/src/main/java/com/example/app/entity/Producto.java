@@ -21,5 +21,5 @@ public class Producto {
     private TipoIva tipoIva;
     private double precio;
 
-    /*private long idCategoria;*/
+    private long idCategoria;
 }

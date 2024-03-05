@@ -23,11 +23,21 @@
             <li class="nav-item">
                 <a class="nav-link"  th:href="@{/producto/list}"><strong>Productos</strong></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/categoria/}"><strong>Categoria</strong></a>
+            </li>
         </ul>
     </div>
 </div>
 
 <h1>Listado de productos de la empresa</h1>
+<h2>Categoría: <span th:text="${categoriaSeleccionada}">default</span></h2>
+<select id="select" size="3" onChange="changeCategory();">
+    <option value="">Todas</option>
+    <option th:each="cat : ${listaCategorias}"
+            th:value="${cat.id}" th:text="${cat.nombre}">
+    </option>
+</select>
 <table>
     <thead>
     <tr>

@@ -19,4 +19,6 @@ public interface ProductoService {
 
     public void borrar (long id);
 
+    public List<Producto> findByCategory(Long idCat);
+
 }

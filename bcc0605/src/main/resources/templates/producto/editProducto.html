@@ -23,6 +23,9 @@
             <li class="nav-item">
                 <a class="nav-link"  th:href="@{/producto/list}"><strong>Productos</strong></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/categoria/}"><strong>Categoria</strong></a>
+            </li>
         </ul>
     </div>
 </div>
@@ -38,7 +41,13 @@
                th:field="*{TipoIva}" />
     </div>
     <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br/>
-
+    <label>Categoria
+        <select name="categoria" th:field="*{idCategoria}">
+            <option th:each="cat : ${listaCategorias}"
+                    th:value="${cat.id}" th:text="${cat.nombre}">
+            </option>
+        </select>
+    </label><br/>
     <input type="submit" value="Enviar"/>
 </form>
 <p th:text="${txtError}">error</p>

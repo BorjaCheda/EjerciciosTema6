@@ -38,10 +38,24 @@
                th:field="*{tipoIva}" />
     </div>
     <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br/>
-
+    <label>Categoria
+        <select name="categoria" th:field="*{idCategoria}">
+            <option th:each="cat : ${listaCategorias}"
+                    th:value="${cat.id}" th:text="${cat.nombre}">
+            </option>
+        </select>
+    </label><br/>
     <input type="submit" value="Enviar"/>
 </form>
+
 <a th:href="@{/producto/}">Inicio</a><br/>
+<script>
+    function changeCategory(){
+        const select = document.getElementById("select");
+        if (select.value == 0) window.location.href = "/";
+        else window.location.href = "/porCateg/"+select.value;
+    }
+</script>
 </body>
 </html>
 

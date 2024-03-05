@@ -42,4 +42,15 @@ public class ProductoServiceImplMem implements ProductoService{
             repositorio.remove(producto);
         }
     }
+
+    @Override
+    public List<Producto> findByCategory(Long idCat) {
+        List<Producto> productoCategoria = new ArrayList<>();
+        for (Producto producto : repositorio){
+            if (producto.getIdCategoria() == idCat){
+                productoCategoria.add(producto);
+            }
+        }
+        return productoCategoria;
+    }
 }

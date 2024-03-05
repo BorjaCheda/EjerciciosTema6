@@ -23,35 +23,30 @@
             <li class="nav-item">
                 <a class="nav-link"  th:href="@{/producto/list}"><strong>Productos</strong></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/categoria/}"><strong>Categoria</strong></a>
+            </li>
         </ul>
     </div>
 </div>
 
-<h1>Listado de productos de la empresa</h1>
+<h1>Listado de categorías de la empresa</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
         <th>Nombre</th>
-        <th>Oferta</th>
-        <th>Tipo de Iva</th>
-        <th>Precio</th>
-        <th>Editar</th>
-        <th>Borrar</th>
     </thead>
     <tbody>
-    <tr th:each="producto : ${listaProductos}">
-        <td th:text="${producto.id}">Id</td>
-        <td th:text="${producto.nombre}">nombre</td>
-        <td th:text="${producto.enOferta}">bool</td>
-        <td th:text="${producto.tipoIva}">0</td>
-        <td th:text="${producto.precio}">0</td>
-        <td><a th:href="@{/producto/editar/{id}(id=${producto.id})}">Editar Producto</a></td>
-        <td><a th:href="@{/producto/borrar/{id}(id=${producto.id})}">Borrar Producto</a></td>
+    <tr th:each="categoria : ${listaCategorias}">
+        <td th:text="${categoria.id}">Id</td>
+        <td th:text="${categoria.nombre}">nombre</td>
+        <td><a th:href="@{/categoria/editar/{id}(id=${categoria.id})}">Editar Categoría</a></td>
+        <td><a th:href="@{/categoria/borrar/{id}(id=${categoria.id})}">Borrar Categoría</a></td>
     </tr>
     </tbody>
 </table>
 <a th:href="@{/producto/}">Inicio</a><br/>
-<a th:href="@{/producto/new}">Nuevo producto</a><br/>
+<a th:href="@{/categoria/new}">Nueva categoría</a><br/>
 </body>
 </html>
