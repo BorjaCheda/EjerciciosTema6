@@ -9,12 +9,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
+@RequestMapping("/")
 public class MainController {
 
     @GetMapping({"", "/", "/home", "/index"})
@@ -33,7 +35,7 @@ public class MainController {
 
         return "contactaView";
     }
-    @GetMapping("/producto")
+    @GetMapping("/producto1")
     public  String showProducto(Model model) {
         List<String> listaProductos = new ArrayList<>(Arrays.asList("Prod1", "Prod2", "Prod3"));
         model.addAttribute("listaProd", listaProductos);

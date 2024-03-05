@@ -27,31 +27,22 @@
     </div>
 </div>
 
-<h1>Listado de productos de la empresa</h1>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Oferta</th>
-        <th>Tipo de Iva</th>
-        <th>Precio</th>
-        <th>Editar</th>
-        <th>Borrar</th>
-    </thead>
-    <tbody>
-    <tr th:each="producto : ${listaProductos}">
-        <td th:text="${producto.id}">Id</td>
-        <td th:text="${producto.nombre}">nombre</td>
-        <td th:text="${producto.enOferta}">bool</td>
-        <td th:text="${producto.tipoIva}">0</td>
-        <td th:text="${producto.precio}">0</td>
-        <td><a th:href="@{/producto/editar/{id}(id=${producto.id})}">Editar Producto</a></td>
-        <td><a th:href="@{/producto/borrar/{id}(id=${producto.id})}">Borrar Producto</a></td>
-    </tr>
-    </tbody>
-</table>
+<h1>Editar Producto</h1>
+<form method="post" action="#" th:action="@{/producto/editar/{id}/submit(id=${productForm.id})}"  th:object="${productForm}">
+    <label>Id: <input type="text" id="id" th:field="*{id}" readonly /> </label><br/>
+    <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+    <label>En Oferta:<input type="checkbox" id="enOferta" th:field="*{enOferta}" ></label><br/>
+    Tipo de Iva:<br/>
+    <div th:each="tipoIva : ${T(com.example.app.entity.TipoIva).values()}">
+        <input type="radio" name="button1" th:value="${tipoIva}" th:text="${tipoIva}"
+               th:field="*{TipoIva}" />
+    </div>
+    <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br/>
+
+    <input type="submit" value="Enviar"/>
+</form>
+<p th:text="${txtError}">error</p>
 <a th:href="@{/producto/}">Inicio</a><br/>
-<a th:href="@{/producto/new}">Nuevo producto</a><br/>
 </body>
 </html>
+
