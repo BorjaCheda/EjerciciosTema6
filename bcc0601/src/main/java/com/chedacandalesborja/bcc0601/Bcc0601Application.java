@@ -21,6 +21,10 @@ public class Bcc0601Application {
 					new Empleado(1L, "pepe", "pepe@gmail.com", 1000d, true, Genero.MASCULINO));
 			empleadoService.añadir(
 					new Empleado(2L, "ana", "ana@gmail.com", 2000d, true, Genero.FEMENINO));
+			empleadoService.añadir(
+					new Empleado(3L, "martin", "martin@gmail.com", 1500d, true, Genero.MASCULINO));
+			empleadoService.añadir(
+					new Empleado(4L, "maria", "maria@gmail.com", 1300d, true, Genero.FEMENINO));
 		};
 	}
 }
