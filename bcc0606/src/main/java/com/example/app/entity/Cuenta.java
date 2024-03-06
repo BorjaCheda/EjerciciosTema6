@@ -17,6 +17,7 @@ public class Cuenta {
     @NotNull
     private String IBAN;
     private String alias;
+    @NotNull
     private Double saldo;
     private List<Movimiento> movimientos;
 }

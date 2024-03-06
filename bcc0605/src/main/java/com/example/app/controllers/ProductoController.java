@@ -73,7 +73,6 @@ public class ProductoController {
     public String showEditSubmit(@Valid Producto productForm, @PathVariable Long id) {
 
        Producto productoEditado = productoService.editar(productForm);
-
         System.out.println("Id: " + productoEditado.getId() + " Precio nuevo: " + productoEditado.getPrecio());
         return "redirect:/producto/";
     }
