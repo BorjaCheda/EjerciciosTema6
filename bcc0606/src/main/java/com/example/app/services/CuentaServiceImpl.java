@@ -14,7 +14,8 @@ public class CuentaServiceImpl implements CuentaService {
 
     @Override
     public Cuenta agregar(Cuenta cuenta) {
-        return null;
+        repositorio.add(cuenta);
+        return cuenta;
     }
 
     @Override

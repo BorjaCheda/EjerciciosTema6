@@ -32,19 +32,21 @@ public class ProductoServiceImplMem implements ProductoService{
         System.out.println("Quieres editar el producto con id:" + producto.getId());
         System.out.println("y le quieres poner un precio de:" + producto.getPrecio());
 
-        int pos = repositorio.indexOf(producto);
-        System.out.println(pos);
+        /*int pos = repositorio.indexOf(producto);
+
         if (pos == -1) return null;
         repositorio.set(pos, producto);
-        return producto;
+        return producto;*/
 
-        /*for (Producto p : repositorio){
+        for (Producto p : repositorio){
             if (p.getId() == producto.getId()){
-                producto = p;
-                return producto;
+                int indice = repositorio.indexOf(p);
+                p = producto;
+                repositorio.set(indice, p);
+                return p;
             }
         }
-        return null;*/
+        return null;
     }
 
     public void borrar (long id){
