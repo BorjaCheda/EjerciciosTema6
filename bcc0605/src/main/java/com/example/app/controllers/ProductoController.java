@@ -40,7 +40,7 @@ public class ProductoController {
 
     }
     @PostMapping("/new/submit")
-    public String showNewSubmit(@Valid Producto productoForm, @Valid Categoria categoriaForm, BindingResult bindingResult, Model model) {
+    public String showNewSubmit(@Valid Producto productoForm, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("productoForm", new Producto());
@@ -60,7 +60,7 @@ public class ProductoController {
     }
 
     @GetMapping("/editar/{id}")
-    public String showEditForm(@PathVariable long id, Model model) {
+    public String showEditForm(@PathVariable Long id, Model model) {
 
         Producto productoAEditar = productoService.obtenerPorId(id);
 
@@ -69,12 +69,12 @@ public class ProductoController {
 
         return "producto/editProducto";
     }
-    @PostMapping("/editar/submit")
-    public String showEditSubmit(@Valid Producto productoForm, BindingResult bindingResult) {
+    @PostMapping("/editar/{id}/submit")
+    public String showEditSubmit(@Valid Producto productForm, @PathVariable Long id) {
 
-        productoService.editar(productoForm);
+       Producto productoEditado = productoService.editar(productForm);
 
-        System.out.println(productoForm.getId() + productoForm.getPrecio());
+        System.out.println("Id: " + productoEditado.getId() + " Precio nuevo: " + productoEditado.getPrecio());
         return "redirect:/producto/";
     }
 

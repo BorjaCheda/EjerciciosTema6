@@ -31,7 +31,7 @@
 </div>
 
 <h1>Editar Producto</h1>
-<form method="post" action="#" th:action="@{/producto/editar/submit}" th:object="${productForm}">
+<form method="post" action="#" th:action="@{/producto/editar/{id}/submit(id=${productForm.id})}" th:object="${productForm}">
     <label>Id: <input type="text" id="id" th:field="*{id}" readonly /> </label><br/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
     <label>En Oferta:<input type="checkbox" id="enOferta" th:field="*{enOferta}" ></label><br/>
