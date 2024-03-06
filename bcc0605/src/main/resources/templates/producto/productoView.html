@@ -63,5 +63,12 @@
 </table>
 <a th:href="@{/producto/}">Inicio</a><br/>
 <a th:href="@{/producto/new}">Nuevo producto</a><br/>
+<script>
+    function changeCategory(){
+        const select = document.getElementById("select");
+        if (select.value == 0) window.location.href = "/producto/list";
+        else window.location.href = "/producto/porCateg/"+select.value;
+    }
+</script>
 </body>
 </html>

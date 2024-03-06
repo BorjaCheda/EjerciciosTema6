@@ -69,12 +69,12 @@ public class ProductoController {
 
         return "producto/editProducto";
     }
-    @PostMapping("/editar/{id}/submit")
-    public String showEditSubmit(@PathVariable Long id, @Valid Producto productoForm, BindingResult bindingResult) {
-
-        if (bindingResult.hasErrors()) return "redirect:/?err=1";
+    @PostMapping("/editar/submit")
+    public String showEditSubmit(@Valid Producto productoForm, BindingResult bindingResult) {
 
         productoService.editar(productoForm);
+
+        System.out.println(productoForm.getId() + productoForm.getPrecio());
         return "redirect:/producto/";
     }
 
