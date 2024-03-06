@@ -1,8 +1,5 @@
 package com.example.app;
 
-import com.example.app.entity.Categoria;
-import com.example.app.entity.Producto;
-import com.example.app.entity.TipoIva;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
