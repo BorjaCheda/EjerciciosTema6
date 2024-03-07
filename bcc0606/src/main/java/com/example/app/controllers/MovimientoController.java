@@ -43,6 +43,7 @@ public class MovimientoController {
     public String showNew(@PathVariable String IBAN,Model model){
 
         model.addAttribute("movimientoForm", new Movimiento(IBAN, LocalDateTime.now()));
+        model.addAttribute("saldoActual", cuentaService.obtenerPorIBAN(IBAN).getSaldo());
 
         return "/movimiento/newMovimientoForm";
 

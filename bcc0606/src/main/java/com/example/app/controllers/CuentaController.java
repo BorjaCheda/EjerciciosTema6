@@ -49,7 +49,8 @@ public class CuentaController {
     @PostMapping("/nuevo/submit")
     public String showNewSubmit(@Valid Cuenta cuentaForm, BindingResult bindingResult, Model model) {
 
-        if (bindingResult.hasErrors()) return "/cuenta/newCuentaForm";
+        if (bindingResult.hasErrors()) return "/cuenta/error";
+
         cuentaService.agregar(cuentaForm);
 
         return "redirect:/cuenta/list";

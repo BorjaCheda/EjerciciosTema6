@@ -73,19 +73,22 @@ public class CuentaServiceImpl implements CuentaService {
             for (Cuenta c : repositorioCuentas){
                 if (c.getIBAN().equalsIgnoreCase(movimiento.getIBAN())){
                     Double nuevoSaldo = movimiento.getImporte() + c.getSaldo();
-                    c.setSaldo(nuevoSaldo);
-                    int indiceCuenta = repositorioCuentas.indexOf(c);
-                    repositorioCuentas.set(indiceCuenta,c);
-                    if (movimiento.getFecha() == null) movimiento.setFecha(LocalDateTime.now());
-                    List<Movimiento> nuevoMov = new ArrayList<>();
-                    if (c.getMovimientos() == null){
-                        nuevoMov.add(movimiento);
-                    } else {
-                        nuevoMov = c.getMovimientos();
-                        nuevoMov.add(movimiento);
+                    if (nuevoSaldo >= 0){
+                        c.setSaldo(nuevoSaldo);
+                        int indiceCuenta = repositorioCuentas.indexOf(c);
+                        repositorioCuentas.set(indiceCuenta,c);
+                        if (movimiento.getFecha() == null) movimiento.setFecha(LocalDateTime.now());
+                        List<Movimiento> nuevoMov = new ArrayList<>();
+                        if (c.getMovimientos() == null){
+                            nuevoMov.add(movimiento);
+                        } else {
+                            nuevoMov = c.getMovimientos();
+                            nuevoMov.add(movimiento);
+                        }
+                        c.setMovimientos(nuevoMov);
                     }
-                    c.setMovimientos(nuevoMov);
-                }
+                    }
+
             }
         }
     }

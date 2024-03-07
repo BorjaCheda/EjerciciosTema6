@@ -24,12 +24,28 @@
         </div>
         <div class="mb-3">
             <label>Importe:</label><br/>
-            <input type="text" id="saldo" th:field="*{importe}"/>
+            <input type="text" id="importe" th:field="*{importe}"/>
         </div>
-        <input type="submit" value="Enviar"/>
+
+        <input type="submit" value="Enviar" onclick="comprobarSaldo()"/>
     </form>
+    <div class="mb-3">
+        <span th:text="${saldoActual}" id="saldoActual">*</span>
+    </div>
     <a th:href="@{/index}">Volver al inicio</a><br/>
 </div>
+<script>
+    function comprobarSaldo() {
+
+        var importe = parseFloat(document.getElementById('importe').value);
+        var saldoActual = parseFloat(document.getElementById('saldoActual').textContent);
+
+        if ((importe + saldoActual) < 0){
+            alert("Movimiento no permitido. Saldo negativo!!!");
+        }
+    }
+
+</script>
 </body>
 </html>
 

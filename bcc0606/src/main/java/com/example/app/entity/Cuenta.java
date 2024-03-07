@@ -1,5 +1,6 @@
 package com.example.app.entity;
 
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +16,7 @@ import java.util.List;
 public class Cuenta {
 
     @NotNull
+    @NotEmpty
     private String IBAN;
     private String alias;
     private Double saldo;
