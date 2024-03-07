@@ -88,7 +88,6 @@ public class CuentaServiceImpl implements CuentaService {
                         c.setMovimientos(nuevoMov);
                     }
                     }
-
             }
         }
     }
