@@ -19,29 +19,24 @@
         </ul>
     </div>
 </div>
-<h1>Listado de cuentas</h1>
+<h1>Listado de Movimientos</h1>
 <table class="table table-striped">
     <thead>
     <tr>
         <th scope="col">IBAN</th>
-        <th scope="col">Alias</th>
-        <th scope="col">Saldo</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Borrar</th>
-        <th scope="col">Movimientos</th>
+        <th scope="col">Fecha Movimiento</th>
+        <th scope="col">Importe</th>
     </thead>
     <tbody>
-    <tr th:each="cuenta : ${listaCuentas}">
-        <td th:text="${cuenta.IBAN}">IBAN</td>
-        <td th:text="${cuenta.alias}">alias</td>
-        <td th:text="${cuenta.saldo}">saldo</td>
-        <td><a th:href="@{/cuenta/editar/{IBAN}(IBAN=${cuenta.IBAN})}">Editar Alias</a></td>
-        <td><a th:href="@{/cuenta/borrar/{IBAN}(IBAN=${cuenta.IBAN})}">Borrar Cuenta</a></td>
-        <td ><a th:href="@{/movimiento/{IBAN}(IBAN=${cuenta.IBAN})}">Lista Movimientos</a></td>
+    <tr th:each="movimiento : ${listaMovimientos}">
+        <td th:text="${movimiento.IBAN}">IBAN</td>
+        <td th:text="${movimiento.fecha}">fecha</td>
+        <td th:text="${movimiento.importe}">importe</td>
     </tr>
     </tbody>
 </table>
 <a th:href="@{/index}">Inicio</a><br/>
 <a th:href="@{/cuenta/nuevo}">Nueva Cuenta</a><br/>
+<a th:href="@{/movimiento/nuevo/{IBAN}(IBAN=${IBAN})}">Nuevo movimiento</a><br/>
 </body>
 </html>

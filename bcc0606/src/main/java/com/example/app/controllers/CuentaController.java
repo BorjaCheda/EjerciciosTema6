@@ -50,7 +50,6 @@ public class CuentaController {
     public String showNewSubmit(@Valid Cuenta cuentaForm, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) return "/cuenta/newCuentaForm";
-
         cuentaService.agregar(cuentaForm);
 
         return "redirect:/cuenta/list";
@@ -60,6 +59,7 @@ public class CuentaController {
     public String showEditForm(@PathVariable String IBAN, Model model) {
 
         Cuenta cuentaAEditar = cuentaService.obtenerPorIBAN(IBAN);
+
         model.addAttribute("cuentaForm", cuentaAEditar);
 
         return "/cuenta/editCuenta";
@@ -70,7 +70,7 @@ public class CuentaController {
 
         cuentaService.editar(cuentaForm);
 
-        return "redirect:/cuenta/list";
+        return "redirect:/cuenta/";
     }
 
     @GetMapping("/borrar/{IBAN}")
@@ -78,8 +78,7 @@ public class CuentaController {
 
         cuentaService.borrar(IBAN);
 
-        return "/cuenta/cuentaView";
+        return "redirect:/cuenta/";
     }
 }
-
 

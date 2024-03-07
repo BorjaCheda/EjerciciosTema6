@@ -16,7 +16,8 @@ public class CuentaServiceImpl implements CuentaService {
 
     @Override
     public Cuenta agregar(Cuenta cuenta) {
-
+        double saldoInicial = 0;
+        if (cuenta.getSaldo() == null) cuenta.setSaldo(saldoInicial);
         repositorioCuentas.add(cuenta);
         return cuenta;
     }
@@ -39,10 +40,11 @@ public class CuentaServiceImpl implements CuentaService {
     @Override
     public Cuenta editar(Cuenta cuenta) {
         for (Cuenta c : repositorioCuentas){
-            if (c.getIBAN() == cuenta.getIBAN()){
+            if (Double.compare(c.getSaldo(), cuenta.getSaldo()) == 0){ // Este método nos devuelve un 0 si son iguales.
                 int indiceCuenta = repositorioCuentas.indexOf(cuenta);
-                repositorioCuentas.set(indiceCuenta, c);
-                return c;
+                cuenta.setMovimientos(c.getMovimientos());
+                repositorioCuentas.set(indiceCuenta, cuenta);
+                return cuenta;
             }
         }
         return null;
@@ -52,13 +54,12 @@ public class CuentaServiceImpl implements CuentaService {
     public void borrar (String IBAN) {
 
         Cuenta c = this.obtenerPorIBAN(IBAN);
-        System.out.println(c.getIBAN());
 
         if (c != null && c.getSaldo() == 0){
             Iterator<Movimiento> iterator = c.getMovimientos().iterator();
             while (iterator.hasNext()) {
                 Movimiento movimiento = iterator.next();
-                if (movimiento.getIBAN().equals(IBAN))
+                if (movimiento.getIBAN().equalsIgnoreCase(IBAN))
                     iterator.remove();
             }
             repositorioCuentas.remove(c);
@@ -70,7 +71,7 @@ public class CuentaServiceImpl implements CuentaService {
 
         if ((movimiento.getImporte() < 1000) || (movimiento.getImporte() > -300)){
             for (Cuenta c : repositorioCuentas){
-                if (c.getIBAN() == movimiento.getIBAN()){
+                if (c.getIBAN().equalsIgnoreCase(movimiento.getIBAN())){
                     Double nuevoSaldo = movimiento.getImporte() + c.getSaldo();
                     c.setSaldo(nuevoSaldo);
                     int indiceCuenta = repositorioCuentas.indexOf(c);
