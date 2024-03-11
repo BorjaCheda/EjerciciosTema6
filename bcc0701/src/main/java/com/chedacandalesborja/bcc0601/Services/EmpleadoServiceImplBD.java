@@ -49,4 +49,9 @@ public class EmpleadoServiceImplBD implements EmpleadoService{
     public List<Empleado> obtenerEmpleadosSalarioMayorMedia() {
         return null;
     }
+
+    @Override
+    public List<Empleado> obtenerEmpleadosConLetraA() {
+        return repositorioEmpleados.obtenerEmpleadosConLetraA();
+    }
 }

@@ -75,6 +75,13 @@ public class EmpleadoController<id> {
         model.addAttribute("listaEmpleados", empleados);
         return "listView";
     }
+    @GetMapping("/listado3")
+    public String showListado3(Model model) {
+        List<Empleado> empleados = empleadoService.obtenerEmpleadosConLetraA();
+        model.addAttribute("tituloListado", "Empleados que tengan en su nombre la letra A:");
+        model.addAttribute("listaEmpleados", empleados);
+        return "listView";
+    }
 
 
 

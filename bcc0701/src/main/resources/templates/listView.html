@@ -33,6 +33,7 @@
     <input type="text" id="salario"/></span>
     <input type="button" onclick="consultarSalario()" value="Buscar Empleados" /><br/>
 <a th:href="@{/listado2}">Empleados con Salario mayor a la media</a><br/>
+<a th:href="@{/listado3}">Empleados que en su nombre tengan la letra "A"</a><br/>
 <script>
     function consultarSalario(){
         window.location.href = "/listado1/"+document.getElementById("salario").value;

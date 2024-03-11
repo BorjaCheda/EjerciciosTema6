@@ -13,4 +13,7 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
     @Query("select e from Empleado e " +
             "where e.salario > (select avg (e2.salario) from Empleado e2)")
     List <Empleado> obtenerEmpleadoSalarioMayorMedia();
+
+    @Query("SELECT e from Empleado e where e.nombre LIKE '%a%'")
+    List <Empleado> obtenerEmpleadosConLetraA();
 }
