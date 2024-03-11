@@ -5,55 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c59e92c-4578-4042-a076-2fb94361b30a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/prueba1.gIbi7Q.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/dataSources/972a67d0-37bf-4306-a46f-5d8e97a09a73/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/.vscode/launch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Controllers/ClientsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Controllers/NumerosController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Controllers/RestNumController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Models/Clients.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Proyecto1Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/Repositories/ClientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/java/com/example/Proyecto1/ServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/static/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/templates/formBase.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/templates/listEmployees.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/main/resources/templates/numeros.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/src/test/java/com/example/Proyecto1/Proyecto1ApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/static/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/templates/formBase.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/templates/listEmployees.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/classes/templates/numeros.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Proyecto1b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../README.mdgit" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Bcc0601Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Bcc0601Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0601/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bcc0601/src/main/resources/templates/editFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0601/src/main/resources/templates/editFormView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Controllers/DepartamentoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Controllers/EmpleadoProyectoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Controllers/ProyectoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Models/Departamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Models/EmpleadoProyecto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Models/EmpleadoProyectoId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Models/Proyecto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Repositories/DepartamentoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Repositories/EmpleadoProyectoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Repositories/EmpleadoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Repositories/ProyectoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/DepartamentoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/DepartamentoServiceImplBD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoProyectoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoProyectoServiceImplBD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/ProyectoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/ProyectoServiceImplBd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/ServiceEmpleadoImplBD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/editFormDepartamentoView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/empListView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/empProyNewFormView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/listDepartamentoView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/listProyectoView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/newFormDepartamentoView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/newFormProyectoView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/proListView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/java/com/chedacandalesborja/bcc0601/Bcc0601Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/java/com/chedacandalesborja/bcc0601/Controllers/EmpleadoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/java/com/chedacandalesborja/bcc0601/Models/Empleado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/java/com/chedacandalesborja/bcc0601/Models/Genero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/resources/templates/editFormView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/resources/templates/listView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/main/resources/templates/newFormView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bcc0701/src/test/java/com/chedacandalesborja/bcc0601/Bcc0601ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proyecto1b/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Proyecto1b/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Bcc0601Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Bcc0601Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Controllers/EmpleadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Controllers/EmpleadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Models/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Models/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0701/src/main/java/com/chedacandalesborja/bcc0601/Services/EmpleadoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/editFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/editFormView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/listView.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/listView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/newFormView.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bcc0700/src/main/resources/templates/newFormView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,24 +74,36 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2dEXdaPxSXdPc2Yw57onMETc0pH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ProyectosconGit/Proyecto1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -96,6 +113,9 @@
       <option name="presentableId" value="Default" />
       <updated>1709574299679</updated>
       <workItem from="1709574300700" duration="16000" />
+      <workItem from="1709889590826" duration="13000" />
+      <workItem from="1710151723406" duration="835000" />
+      <workItem from="1710168307321" duration="193000" />
     </task>
     <servers />
   </component>

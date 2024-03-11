@@ -9,7 +9,8 @@
 </head>
 <body>
 <h1>Nuevo empleado</h1>
-<form method="post" action="#" th:action="@{/nuevo/submit}" th:object="${empleadoForm}" enctype="multipart/form-data">
+<form method="post" action="#" th:action="@{/editar/{id}/submit(id=${empleadoForm.id})}" th:object="${empleadoForm}">
+    <label>Id: <input type="text" readonly id="id" th:field="*{id}" /> </label><br/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
     <div th:classappend="${#fields.hasErrors('email')} ? 'cssError'">
         <label>Email:<input type="text" id="email" th:field="*{email}"/>
@@ -24,14 +25,7 @@
         <input type="radio" name="button1" th:value="${gen}" th:text="${gen}"
                th:field="*{genero}" />
     </div>
-    Departamento:<br/>
-    <select name="list1" th:field="*{departamento}">
-        <option value="0">select option</option> <!--opcion por defecto-->
-        <option th:each="departamento:${listaDepartamentos}"
-                th:value="${departamento.id}" th:text="${departamento.nombre}">
-        </option>
-    </select>
-    <!--<label>Añade Fotografía del Empleado:<input type="file" name="imagen"/></label><br/>-->
+   <!--<label>Añade Fotografía del Empleado:<input type="file" name="imagen"/></label><br/>-->
     <input type="submit" value="Enviar"/>
 </form>
 <a th:href="@{/}">Inicio</a><br/>

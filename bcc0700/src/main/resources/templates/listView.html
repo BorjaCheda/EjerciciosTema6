@@ -8,11 +8,18 @@
 </head>
 <body>
 <h1>Listado de empleados de la empresa</h1>
+<select id="select" onChange="changeDepartamento();">
+    <option value="0">Todos</option>
+    <option th:each="dep : ${listaDepartamentos}"
+            th:value="${dep.id}" th:text="${dep.nombre}"
+            th:selected="${dep.id == deptoSeleccionado} ? 'true' : 'false'">
+    </option>
+</select>
 <table>
     <thead>
     <tr>
         <th>ID</th><th>Nombre</th><th>Email</th><th>Salario</th>
-        <th>Editar</th><th>Borrar</th>
+        <th>Editar</th><th>Borrar</th><th>Proyectos</th>
     </thead>
     <tbody>
     <tr th:each="empleado : ${listaEmpleados}">
@@ -22,13 +29,31 @@
         <td th:text="${empleado.salario}">0</td>
         <td th:text="${empleado.enActivo}">bool</td>
         <td th:text="${empleado.genero}">genero</td>
-        <!--<td th:text="${empleado.imagen}">Imagen</td>-->
+        <td th:text="${empleado.departamento.nombre}">depto</td>
         <td><a th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a></td>
         <td><a th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></td>
+        <td><a th:href="@{/emplProy/emp/{id}
+ (id=${empleado.id})}">Proyectos</a></td>
     </tr>
     </tbody>
 </table>
 <a th:href="@{/}">Inicio</a><br/>
 <a th:href="@{/nuevo}">Nuevo empleado</a><br/>
+<a th:href="@{/depto/}">Gestión de departamentos</a><br/>
+<a th:href="@{/proy/}">Gestión de proyectos</a><br/>
+<a th:href="@{/listado1}">Listado 1 - Empleados con salario mayor o igual que: </a> <input type="text" id="salario"/>
+<input type="button" onclick="consultarSalario()" value="Filtrar Empleados por Salario" /> <br/>
+<a th:href="@{/listado2}">Listado 2 - Empleados con salario mayor a la media</a><br/>
+<script>
+    function consultarSalario(){
+        window.location.href = "/listado1/"+document.getElementById("salario").value;
+    }
+    function changeDepartamento(){
+        const select = document.getElementById("select");
+        if (select.value == 0) window.location.href = "/";
+        else window.location.href = "/porDepto/"+select.value;
+    }
+
+</script>
 </body>
 </html>

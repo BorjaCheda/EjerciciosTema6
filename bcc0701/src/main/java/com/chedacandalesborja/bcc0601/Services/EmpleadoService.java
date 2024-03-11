@@ -15,7 +15,8 @@ public interface EmpleadoService {
 
     public void borrar (long id);
 
-    List<Empleado> obtenerEmpleadosSalarioMayor (double salario);
-    List<Empleado> obtenerEmpleadoSalarioMayorMedia();
+    public List<Empleado> findBySalarioGreaterThanEqualOrderBySalario (double salario);
+    public List <Empleado> obtenerEmpleadoSalarioMayorMedia();
 
+    List <Empleado> obtenerEmpleadosSalarioMayorMedia();
 }
