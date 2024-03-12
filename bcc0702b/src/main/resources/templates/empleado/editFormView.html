@@ -8,7 +8,7 @@
     <style>.cssError { background-color:red; } </style>
 </head>
 <body>
-<h1>Nuevo empleado</h1>
+<h1>Edita empleado</h1>
 <form method="post" action="#" th:action="@{/editar/{id}/submit(id=${empleadoForm.id})}" th:object="${empleadoForm}">
     <label>Id: <input type="text" readonly id="id" th:field="*{id}" /> </label><br/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
@@ -25,9 +25,15 @@
         <input type="radio" name="button1" th:value="${gen}" th:text="${gen}"
                th:field="*{genero}" />
     </div>
-   <!--<label>Añade Fotografía del Empleado:<input type="file" name="imagen"/></label><br/>-->
+    Departamento:<br/>
+    <select name="list1" th:field="*{departamento}">
+        <option value="0">select option</option> <!--opcion por defecto-->
+        <option th:each="departamento:${listaDepartamentos}"
+                th:value="${departamento.id}" th:text="${departamento.nombre}">
+        </option>
+    </select>
     <input type="submit" value="Enviar"/>
 </form>
-<a th:href="@{/}">Inicio</a><br/>
+<a th:href="@{/static}">Inicio</a><br/>
 </body>
 </html>

@@ -1,8 +1,6 @@
 package com.chedacandalesborja.bcc0601.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
@@ -35,5 +33,9 @@ public class Empleado {
     private boolean enActivo;
 
     private Genero genero;
+
+    @ManyToOne
+    @JoinColumn(name = "DEPTO_ID", foreignKey = @ForeignKey(name="DEPTO_ID_FK"))
+    private Departamento departamento;
 
 }

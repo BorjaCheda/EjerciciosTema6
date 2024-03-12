@@ -8,10 +8,17 @@
 </head>
 <body>
 <h1 th:text="${tituloListado}">Título listado</h1>
+<select id="select" onChange="changeDepartamento();">
+    <option value="0">Todos</option>
+    <option th:each="dep : ${listaDepartamentos}"
+            th:value="${dep.id}" th:text="${dep.nombre}"
+            th:selected="${dep.id} == ${deptoSeleccionado} ? 'true' : 'false'">
+    </option>
+</select>
 <table>
     <thead>
     <th>ID</th><th>Nombre</th><th>Email</th><th>Salario</th>
-    <th>Activo</th><th>Genero</th><th>Imagen</th>
+    <th>Activo</th><th>Genero</th><th>Departamento</th><th>Editar</th><th>Borrar</th>
     </thead>
     <tbody>
     <tr th:each="empleado : ${listaEmpleados}">
@@ -21,7 +28,7 @@
         <td th:text="${empleado.salario}">0</td>
         <td th:text="${empleado.enActivo}">bool</td>
         <td th:text="${empleado.genero}">genero</td>
-        <!--<td th:text="${empleado.imagen}">Imagen</td>-->
+        <td th:text="${empleado.departamento.nombre}">depto</td>
         <td><a th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a></td>
         <td><a th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></td>
     </tr>
@@ -34,9 +41,15 @@
     <input type="button" onclick="consultarSalario()" value="Buscar Empleados" /><br/>
 <a th:href="@{/listado2}">Empleados con Salario mayor a la media</a><br/>
 <a th:href="@{/listado3}">Empleados que en su nombre tengan la letra "A"</a><br/>
+<a th:href="@{/depto/}">Gestión de departamentos</a><br/>
 <script>
     function consultarSalario(){
         window.location.href = "/listado1/"+document.getElementById("salario").value;
+    }
+    function changeDepartamento() {
+        const select = document.getElementById("select");
+        if (select.value == 0) window.location.href = "/";
+        else window.location.href = "/porDepto/" + select.value;
     }
 </script>
 </body>

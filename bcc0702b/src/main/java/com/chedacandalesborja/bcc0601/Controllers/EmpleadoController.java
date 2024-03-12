@@ -1,6 +1,7 @@
 package com.chedacandalesborja.bcc0601.Controllers;
 
 import com.chedacandalesborja.bcc0601.Models.Empleado;
+import com.chedacandalesborja.bcc0601.Services.DepartamentoService;
 import com.chedacandalesborja.bcc0601.Services.EmpleadoServiceImplBD;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +17,21 @@ public class EmpleadoController<id> {
 
     @Autowired
     public EmpleadoServiceImplBD empleadoService;
+    @Autowired
+    public DepartamentoService departamentoService;
 
     @GetMapping ({"/", "/list"})
     public String showList (Model model){
         model.addAttribute("listaEmpleados", empleadoService.obtenerTodos());
-        return "listView";
+        model.addAttribute("listaDepartamentos",departamentoService.obtenerTodos());
+        return "empleado/listView";
     }
 
     @GetMapping ("/nuevo")
     public String showNew (Model model){
         model.addAttribute("empleadoForm", new Empleado());
-        return "newFormView";
+        model.addAttribute("listaDepartamentos",departamentoService.obtenerTodos());
+        return "empleado/newFormView";
     }
 
     @PostMapping("/nuevo/submit")
@@ -39,10 +44,10 @@ public class EmpleadoController<id> {
     @GetMapping("/editar/{id}")
     public String showEditForm (@PathVariable long id, Model model ){
         Empleado empleado = empleadoService.obtenerPorId(id);
-
+        model.addAttribute("listaDepartamentos",departamentoService.obtenerTodos());
         if (empleado != null){
             model.addAttribute("empleadoForm", empleado);
-            return "editFormView";
+            return "empleado/editFormView";
         }
         return "redirect:/";
     }
@@ -66,21 +71,21 @@ public class EmpleadoController<id> {
         model.addAttribute("tituloListado", "Empleados salario mayor que: " +
                 salario.toString() + "€:");
         model.addAttribute("listaEmpleados", empleados);
-        return "listView";
+        return "empleado/listView";
     }
     @GetMapping("/listado2")
     public String showListado2(Model model) {
         List<Empleado> empleados = empleadoService.obtenerEmpleadoSalarioMayorMedia();
         model.addAttribute("tituloListado", "Empleados salario mayor que la media:");
         model.addAttribute("listaEmpleados", empleados);
-        return "listView";
+        return "empleado/listView";
     }
     @GetMapping("/listado3")
     public String showListado3(Model model) {
         List<Empleado> empleados = empleadoService.obtenerEmpleadosConLetraA();
         model.addAttribute("tituloListado", "Empleados que tengan en su nombre la letra A:");
         model.addAttribute("listaEmpleados", empleados);
-        return "listView";
+        return "empleado/listView";
     }
 
 
