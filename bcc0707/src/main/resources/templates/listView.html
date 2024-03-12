@@ -7,37 +7,20 @@
     <title>Empleado CRUD</title>
 </head>
 <body>
-<h1 th:text="${tituloListado}">Título listado</h1>
+<h1>Listado de empleados</h1>
 <table>
-    <thead>
-    <th>ID</th><th>Nombre</th><th>Email</th><th>Salario</th>
-    <th>Activo</th><th>Genero</th><th>Imagen</th>
-    </thead>
-    <tbody>
-    <tr th:each="empleado : ${listaEmpleados}">
+    <thead><th>ID</th><th>Nombre</th><th>Email</th><th>Salario</th></thead>
+    <tbody><tr th:each="empleado : ${listaEmpleados}">
         <td th:text="${empleado.id}">Id</td>
         <td th:text="${empleado.nombre}">nombre</td>
         <td th:text="${empleado.email}">email@gmail.com</td>
         <td th:text="${empleado.salario}">0</td>
-        <td th:text="${empleado.enActivo}">bool</td>
-        <td th:text="${empleado.genero}">genero</td>
-        <!--<td th:text="${empleado.imagen}">Imagen</td>-->
-        <td><a th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a></td>
-        <td><a th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></td>
     </tr>
     </tbody>
 </table>
-<a th:href="@{/}">Inicio</a><br/>
-<a th:href="@{/nuevo}">Nuevo empleado</a><br/>
-<span>Filtrar Empleados por salario - Empleados con salario mayor que:
-    <input type="text" id="salario"/></span>
-    <input type="button" onclick="consultarSalario()" value="Buscar Empleados" /><br/>
-<a th:href="@{/listado2}">Empleados con Salario mayor a la media</a><br/>
-<a th:href="@{/listado3}">Empleados que en su nombre tengan la letra "A"</a><br/>
-<script>
-    function consultarSalario(){
-        window.location.href = "/listado1/"+document.getElementById("salario").value;
-    }
-</script>
+<a th:href="@{/listaEmpleados/?pag=0}">Pág inicial</a>&nbsp;|&nbsp;
+<a th:href="@{/listaEmpleados/(pag=${pagAnterior})}">Pág ant</a>&nbsp;|&nbsp;
+<a th:href="@{/listaEmpleados/(pag=${pagSiguiente})}">Pág sig</a>&nbsp;|&nbsp;
+<a th:href="@{/listaEmpleados/(pag=${pagFinal})}">Utl.pág</a>
 </body>
 </html>

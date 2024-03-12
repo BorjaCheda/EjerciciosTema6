@@ -2,6 +2,7 @@ package com.chedacandalesborja.bcc0601.Models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
@@ -20,9 +21,8 @@ import java.io.File;
 @Entity
 public class Empleado {
     @Id
-    @GeneratedValue
     @Min(value = 0)
-    private Long id;
+    private Integer id;
 
     @NotEmpty
     private String nombre;
@@ -31,9 +31,5 @@ public class Empleado {
     private String email;
 
     private Double salario;
-
-    private boolean enActivo;
-
-    private Genero genero;
 
 }
