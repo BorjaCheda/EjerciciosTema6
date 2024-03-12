@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Empleado CRUD</title>
+    <style>.cssError { background-color:red; } </style>
+</head>
+<body>
+<h1>Nuevo Proyecto</h1>
+<form method="post" action="#" th:action="@{/proy/new/submit}" th:object="${proyectoForm}">
+    <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+    <input type="submit" value="Crear Proyecto"/>
+</form>
+<a th:href="@{/}">Inicio</a><br/>
+<a th:href="@{/proy/}">Lista de proyectos</a><br/>
+</body>
+</html>
