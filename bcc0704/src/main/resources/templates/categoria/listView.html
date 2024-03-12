@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Empleado CRUD</title>
+</head>
+<body>
+<h1>Listado de Categorías</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th><th>Nombre<th>Editar</th><th>Borrar</th>
+    </thead>
+    <tbody>
+    <tr th:each="categoria : ${listaCategorias}">
+        <td th:text="${categoria.id}">Id</td>
+        <td th:text="${categoria.nombre}">nombre</td>
+        <td><a th:href="@{/categoria/edit/{id}(id=${categoria.id})}">
+            Editar</a></td>
+        <td><a th:href="@{/categoria/delete/{id}(id=${categoria.id})}">
+            Borrar</a></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Inicio</a><br/>
+<a th:href="@{/depto/new}">Nuevo Departamento</a><br/>
+<a th:href="@{/categoria/new}">Nueva Categoría</a><br/>
+</body>
+</html>
