@@ -24,7 +24,7 @@ public class EmpleadoController<id> {
         if (pag == null || pag < 0 || pag > ultPag) pag = 0;
         Integer pagSig = ultPag > pag ? pag + 1 : ultPag;
         Integer pagAnt = pag > 0 ? pag - 1 : 0;
-        System.out.println(empleadoService.getTotalPaginas());
+        System.out.println("Las páginas totales de esta base de datos dividas de 10 en 10 son: " + empleadoService.getTotalPaginas());
         model.addAttribute("listaEmpleados", empleadoService.getEmpleadosPaginados(pag));
         model.addAttribute("pagSiguiente", pagSig);
         model.addAttribute("pagAnterior", pagAnt);

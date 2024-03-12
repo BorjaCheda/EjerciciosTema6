@@ -17,7 +17,7 @@ public class EmpleadoServiceImplBD implements EmpleadoService{
     private final Integer pageSize = 10;
     @Override
     public List<Empleado> getEmpleadosPaginados(Integer pageNum) {
-        Pageable paging = PageRequest.of(pageNum, pageSize, Sort.by("nombre"));
+        Pageable paging = PageRequest.of(pageNum, pageSize, Sort.by("salario"));
         Page<Empleado> pagedResult = empleadoRepository.findAll(paging);
         if (pagedResult.hasContent()) return pagedResult.getContent();
         else return null;
