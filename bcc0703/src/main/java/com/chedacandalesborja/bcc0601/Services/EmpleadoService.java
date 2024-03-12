@@ -19,10 +19,8 @@ public interface EmpleadoService {
 
     public List<Empleado> obtenerEmpleadoSalarioMayorMedia();
 
-    List<Empleado> obtenerEmpleadosSalarioMayorMedia();
-
     List<Empleado> obtenerEmpleadosConLetraA();
 
-    //List<Empleado> findByDepartamento (Long idDepartamento);
     List<Empleado> findEmpleadosByDepartamentoId (long idDepartamento);
+    List<Empleado> findEmpleadosByCategoriaId (long idCategoria);
 }

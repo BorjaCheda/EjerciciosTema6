@@ -1,22 +1,23 @@
 package com.chedacandalesborja.bcc0601.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Departamento {
+public class Categoria {
     @Id
     @GeneratedValue
     private Long id;
     @NotEmpty
     private String nombre;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "categoria")
+    private Set<Empleado> empleados = new HashSet<>();
 }

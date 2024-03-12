@@ -7,18 +7,27 @@
     <title>Empleado CRUD</title>
 </head>
 <body>
-<select id="select" onChange="changeDepartamento();">
+Departamento:
+<select id="select1" onChange="changeDepartamento();">
     <option value="0">Todos</option>
     <option th:each="dep : ${listaDepartamentos}"
             th:value="${dep.id}" th:text="${dep.nombre}"
             th:selected="${dep.id} == ${deptoSeleccionado} ? 'true' : 'false'">
     </option>
 </select>
+Categoría:
+<select id="select2" onChange="changeCategoria();">
+    <option value="0">Todas</option>
+    <option th:each="cat : ${listaCategorias}"
+            th:value="${cat.id}" th:text="${cat.nombre}"
+            th:selected="${cat.id} == ${categoriaSeleccionada} ? 'true' : 'false'">
+    </option>
+</select>
 <h1 th:text="${tituloListado}">Título listado</h1>
 <table>
     <thead>
     <th>ID</th><th>Nombre</th><th>Email</th><th>Salario</th>
-    <th>Activo</th><th>Genero</th><th>Departamento</th><th>Editar</th><th>Borrar</th>
+    <th>Activo</th><th>Genero</th><th>Departamento</th><th>Categoría</th><th>Editar</th><th>Borrar</th>
     </thead>
     <tbody>
     <tr th:each="empleado : ${listaEmpleados}">
@@ -29,6 +38,7 @@
         <td th:text="${empleado.enActivo}">bool</td>
         <td th:text="${empleado.genero}">genero</td>
         <td th:text="${empleado.departamento.nombre}">depto</td>
+        <td th:text="${empleado.categoria.nombre}">depto</td>
         <td><a th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a></td>
         <td><a th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></td>
     </tr>
@@ -42,14 +52,21 @@
 <a th:href="@{/listado2}">Empleados con Salario mayor a la media</a><br/>
 <a th:href="@{/listado3}">Empleados que en su nombre tengan la letra "A"</a><br/>
 <a th:href="@{/depto/}">Gestión de departamentos</a><br/>
+<a th:href="@{/categoria/}">Gestión de categorías</a><br/>
+
 <script>
     function consultarSalario(){
         window.location.href = "/listado1/"+document.getElementById("salario").value;
     }
     function changeDepartamento(){
-        const select = document.getElementById("select");
-        if (select.value == 0) window.location.href = "/";
-        else window.location.href = "/porDepto/"+select.value;
+        const select1 = document.getElementById("select1");
+        if (select1.value == 0) window.location.href = "/";
+        else window.location.href = "/porDepto/"+select1.value;
+    }
+    function changeCategoria(){
+        const select2 = document.getElementById("select2");
+        if (select2.value == 0) window.location.href = "/";
+        else window.location.href = "/porCategoria/"+select2.value;
     }
 </script>
 </body>

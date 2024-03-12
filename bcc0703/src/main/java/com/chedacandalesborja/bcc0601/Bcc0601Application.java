@@ -1,8 +1,11 @@
 package com.chedacandalesborja.bcc0601;
 
+
+import com.chedacandalesborja.bcc0601.Models.Categoria;
 import com.chedacandalesborja.bcc0601.Models.Departamento;
 import com.chedacandalesborja.bcc0601.Models.Empleado;
 import com.chedacandalesborja.bcc0601.Models.Genero;
+import com.chedacandalesborja.bcc0601.Services.CategoriaService;
 import com.chedacandalesborja.bcc0601.Services.DepartamentoService;
 import com.chedacandalesborja.bcc0601.Services.EmpleadoService;
 import org.springframework.boot.CommandLineRunner;

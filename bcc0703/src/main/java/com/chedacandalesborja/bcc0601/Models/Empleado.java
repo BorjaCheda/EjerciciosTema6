@@ -4,10 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.File;
 
@@ -35,7 +34,15 @@ public class Empleado {
     private Genero genero;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE) /* Al borrar el departamento, borraremos también
+                                                todos los empleados que pertenecen a ese dpto*/
     @JoinColumn(name = "DEPTO_ID", foreignKey = @ForeignKey(name="DEPTO_ID_FK"))
     private Departamento departamento;
+
+    @ToString.Exclude
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "CATEGORIA_ID", foreignKey = @ForeignKey(name="CATEGORIA_ID_FK"))
+    private Categoria categoria;
 
 }

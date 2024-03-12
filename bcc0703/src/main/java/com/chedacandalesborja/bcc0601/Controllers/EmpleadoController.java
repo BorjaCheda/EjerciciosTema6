@@ -1,6 +1,7 @@
 package com.chedacandalesborja.bcc0601.Controllers;
 
 import com.chedacandalesborja.bcc0601.Models.Empleado;
+import com.chedacandalesborja.bcc0601.Services.CategoriaService;
 import com.chedacandalesborja.bcc0601.Services.DepartamentoService;
 import com.chedacandalesborja.bcc0601.Services.EmpleadoServiceImplBD;
 import jakarta.validation.Valid;
@@ -19,12 +20,16 @@ public class EmpleadoController<id> {
     public EmpleadoServiceImplBD empleadoService;
     @Autowired
     public DepartamentoService departamentoService;
+    @Autowired
+    public CategoriaService categoriaService;
 
     @GetMapping ({"/", "/list"})
     public String showList (Model model){
         model.addAttribute("listaEmpleados", empleadoService.obtenerTodos());
         model.addAttribute("listaDepartamentos",departamentoService.obtenerTodos());
+        model.addAttribute("listaCategorias",categoriaService.obtenerTodos());
         model.addAttribute("deptoSeleccionado", 0);
+        model.addAttribute("categoriaSeleccionada", 0);
         return "empleado/listView";
     }
 
@@ -32,6 +37,7 @@ public class EmpleadoController<id> {
     public String showNew (Model model){
         model.addAttribute("empleadoForm", new Empleado());
         model.addAttribute("listaDepartamentos",departamentoService.obtenerTodos());
+        model.addAttribute("listaCategorias",categoriaService.obtenerTodos());
         return "empleado/newFormView";
     }
 
@@ -46,6 +52,7 @@ public class EmpleadoController<id> {
     public String showEditForm (@PathVariable long id, Model model ){
         Empleado empleado = empleadoService.obtenerPorId(id);
         model.addAttribute("listaDepartamentos",departamentoService.obtenerTodos());
+        model.addAttribute("listaCategorias",categoriaService.obtenerTodos());
         if (empleado != null){
             model.addAttribute("empleadoForm", empleado);
             return "empleado/editFormView";
@@ -96,6 +103,18 @@ public class EmpleadoController<id> {
         model.addAttribute("tituloListado", "Estas mostrando los empleados del departamento de " +
                 departamentoService.obtenerPorId(idDepartamento).getNombre() + ":");
         model.addAttribute("listaDepartamentos", departamentoService.obtenerTodos());
+        model.addAttribute("listaCategorias", categoriaService.obtenerTodos());
+        return "empleado/listView";
+    }
+    @GetMapping ("/porCategoria/{idCategoria}")
+    public String showEmpleadosPorCategoria (@PathVariable Long idCategoria, Model model){
+
+        List<Empleado> empleadosPorCategoria = empleadoService.findEmpleadosByCategoriaId(idCategoria);
+        model.addAttribute("listaEmpleados", empleadosPorCategoria);
+        model.addAttribute("tituloListado", "Estas mostrando los empleados de la categoría de " +
+                categoriaService.obtenerPorId(idCategoria).getNombre()+ ":");
+        model.addAttribute("listaDepartamentos", departamentoService.obtenerTodos());
+        model.addAttribute("listaCategorias", categoriaService.obtenerTodos());
         return "empleado/listView";
     }
 

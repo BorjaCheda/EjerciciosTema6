@@ -19,4 +19,5 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 
     //List<Empleado> findByDepartamento (Long idDepartamento);
     List<Empleado> findEmpleadosByDepartamentoId (Long idDepartamento);
+    List<Empleado> findEmpleadosByCategoriaId (Long idCategoria);
 }
