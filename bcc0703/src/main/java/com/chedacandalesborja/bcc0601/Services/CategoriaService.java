@@ -1,7 +1,6 @@
 package com.chedacandalesborja.bcc0601.Services;
 
 import com.chedacandalesborja.bcc0601.Models.Categoria;
-import com.chedacandalesborja.bcc0601.Models.Departamento;
 
 import java.util.List;
 
