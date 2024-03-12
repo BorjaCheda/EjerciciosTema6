@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/proyecto")
+@RequestMapping("/proy")
 public class ProyectoController {
 
     @Autowired
@@ -35,12 +35,12 @@ public class ProyectoController {
         if (bindingResult.hasErrors()) return "redirect:/depto/new";
 
         proyectoService.añadir(proyectoForm);
-        return "redirect:/proyecto/list";
+        return "redirect:/proy/list";
     }
     @GetMapping("/delete/{id}")
     public String showDelete(@PathVariable long id) {
         proyectoService.borrar(proyectoService.obtenerPorId(id));
-        return "redirect:/proyecto/list";
+        return "redirect:/proy/list";
     }
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable long id, Model model) {
@@ -49,7 +49,7 @@ public class ProyectoController {
             model.addAttribute("proyectoForm", proyecto);
             return "proyecto/editFormView";
         } else {
-            return "redirect:/proyecto/list";
+            return "redirect:/proy/list";
         }
     }
     @PostMapping("/edit/{id}/submit")
@@ -57,6 +57,6 @@ public class ProyectoController {
                                   BindingResult bindingResult) {
         if (!bindingResult.hasErrors())
             proyectoService.editar(proyectoForm);
-        return "redirect:/proyecto/list";
+        return "redirect:/proy/list";
     }
 }

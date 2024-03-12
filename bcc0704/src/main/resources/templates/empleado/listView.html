@@ -27,7 +27,8 @@ Categoría:
 <table>
     <thead>
     <th>ID</th><th>Nombre</th><th>Email</th><th>Salario</th>
-    <th>Activo</th><th>Genero</th><th>Departamento</th><th>Categoría</th><th>Editar</th><th>Borrar</th>
+    <th>Activo</th><th>Genero</th><th>Departamento</th><th>Categoría</th>
+    <th>Editar</th><th>Borrar</th><th>Proyectos</th>
     </thead>
     <tbody>
     <tr th:each="empleado : ${listaEmpleados}">
@@ -41,6 +42,7 @@ Categoría:
         <td th:text="${empleado.categoria.nombre}">depto</td>
         <td><a th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a></td>
         <td><a th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></td>
+        <td><a th:href="@{/emplProy/emp/{id}(id=${empleado.id})}">Proyectos</a></td>
     </tr>
     </tbody>
 </table>
@@ -53,6 +55,7 @@ Categoría:
 <a th:href="@{/listado3}">Empleados que en su nombre tengan la letra "A"</a><br/>
 <a th:href="@{/depto/}">Gestión de departamentos</a><br/>
 <a th:href="@{/categoria/}">Gestión de categorías</a><br/>
+<a th:href="@{/proy/}">Gestión de proyectos</a><br/>
 
 <script>
     function consultarSalario(){
