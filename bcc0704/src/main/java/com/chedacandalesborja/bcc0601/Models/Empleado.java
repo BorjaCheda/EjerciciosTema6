@@ -9,6 +9,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -44,5 +46,9 @@ public class Empleado {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "CATEGORIA_ID", foreignKey = @ForeignKey(name="CATEGORIA_ID_FK"))
     private Categoria categoria;
+
+    @ToString.Exclude
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private List<Proyecto> proyectos = new ArrayList<>();
 
 }
