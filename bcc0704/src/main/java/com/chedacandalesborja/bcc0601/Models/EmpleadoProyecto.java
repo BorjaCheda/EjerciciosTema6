@@ -16,7 +16,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class EmpleadoProyecto {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     @ManyToOne
