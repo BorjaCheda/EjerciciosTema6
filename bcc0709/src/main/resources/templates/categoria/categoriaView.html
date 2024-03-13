@@ -8,27 +8,6 @@
     <link  rel="stylesheet" th:href="@{/css/tabla.css}"/>
 </head>
 <body>
-<div id="principal" class="col-sm-12" style="background-color:#F4FBEB;margin-right-color:#F4FBEB">
-    <div class="nav-expand-lg" id="menu">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/producto/list}"><strong>Inicio</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/contacta}"><strong>Contacta</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/quienessomos}"><strong>Quienes somos</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/producto/list}"><strong>Productos</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/categoria/}"><strong>Categoria</strong></a>
-            </li>
-        </ul>
-    </div>
-</div>
 
 <h1>Listado de categorías de la empresa</h1>
 <table>
@@ -36,6 +15,8 @@
     <tr>
         <th>ID</th>
         <th>Nombre</th>
+        <th>Editar</th>
+        <th>Borrar</th>
     </thead>
     <tbody>
     <tr th:each="categoria : ${listaCategorias}">
@@ -46,7 +27,8 @@
     </tr>
     </tbody>
 </table>
-<a th:href="@{/producto/}">Inicio</a><br/>
+<a th:href="@{/producto/}">Inicio Listado Productos</a><br/>
 <a th:href="@{/categoria/new}">Nueva categoría</a><br/>
+<a th:href="@{/producto/new}">Nuevo producto</a><br/>
 </body>
 </html>

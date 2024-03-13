@@ -1,5 +1,6 @@
 package com.example.app.services;
 
+import com.example.app.entity.Categoria;
 import com.example.app.entity.Producto;
 import org.springframework.stereotype.Service;
 
@@ -9,16 +10,16 @@ import java.util.List;
 @Service
 public interface ProductoService {
 
-    public Producto añadir (Producto producto);
+    Producto añadir (Producto producto);
 
-    public List<Producto> obtenerTodos();
+   List<Producto> obtenerTodos();
 
-    public Producto obtenerPorId (long id);
+   Producto obtenerPorId (long id);
 
-    public Producto editar (Producto producto);
+    Producto editar (Producto producto);
 
-    public void borrar (long id);
+    void borrar (long id);
 
-    public List<Producto> findByCategory(Long idCat);
+    List<Producto> findProductoByCategoria (Categoria categoria);
 
 }

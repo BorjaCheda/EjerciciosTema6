@@ -40,20 +40,21 @@ public class ProductoController {
 
     }
     @PostMapping("/new/submit")
-    public String showNewSubmit(@Valid Producto productoForm, BindingResult bindingResult, Model model) {
+    public String showNewSubmit(@Valid Producto productForm, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute("productoForm", new Producto());
+            model.addAttribute("productForm", new Producto());
             model.addAttribute("listaCategorias", categoriaService.obtenerTodas());
-            model.addAttribute("txtError", "Error en formulario");
+            System.out.println("Algo salió mal al insertar nuevo producto!");
             return "producto/newProductoForm";
         }
-        productoService.añadir(productoForm);
+        productoService.añadir(productForm);
         return "redirect:/producto/list";
     }
     @GetMapping("/porCateg/{idCat}")
     public String showListInCategory(@PathVariable Long idCat, Model model) {
-        model.addAttribute("listaProductos", productoService.findByCategory(idCat));
+        Categoria categoria = categoriaService.obtenerPorId(idCat);
+        model.addAttribute("listaProductos", productoService.findProductoByCategoria(categoria));
         model.addAttribute("listaCategorias", categoriaService.obtenerTodas());
         model.addAttribute("categoriaSeleccionada", categoriaService.obtenerPorId(idCat));
         return "producto/productoView";

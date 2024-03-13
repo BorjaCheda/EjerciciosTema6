@@ -8,27 +8,6 @@
     <link  rel="stylesheet" th:href="@{/css/tabla.css}"/>
 </head>
 <body>
-<div id="principal" class="col-sm-12" style="background-color:#F4FBEB;margin-right-color:#F4FBEB">
-    <div class="nav-expand-lg" id="menu">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/producto/list}"><strong>Inicio</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/contacta}"><strong>Contacta</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/quienessomos}"><strong>Quienes somos</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/producto/list}"><strong>Productos</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/categoria/}"><strong>Categoria</strong></a>
-            </li>
-        </ul>
-    </div>
-</div>
 
 <h1>Listado de productos de la empresa</h1>
 <h2>Categoría: <span th:text="${categoriaSeleccionada}">default</span></h2>
@@ -46,6 +25,7 @@
         <th>Oferta</th>
         <th>Tipo de Iva</th>
         <th>Precio</th>
+        <th>Categoría</th>
         <th>Editar</th>
         <th>Borrar</th>
     </thead>
@@ -56,6 +36,7 @@
         <td th:text="${producto.enOferta}">bool</td>
         <td th:text="${producto.tipoIva}">0</td>
         <td th:text="${producto.precio}">0</td>
+        <td th:text="${producto.categoria.nombre}">0</td>
         <td><a th:href="@{/producto/editar/{id}(id=${producto.id})}">Editar Producto</a></td>
         <td><a th:href="@{/producto/borrar/{id}(id=${producto.id})}">Borrar Producto</a></td>
     </tr>
@@ -63,6 +44,8 @@
 </table>
 <a th:href="@{/producto/}">Inicio</a><br/>
 <a th:href="@{/producto/new}">Nuevo producto</a><br/>
+<a th:href="@{/categoria/list}">Lista categorías</a><br/>
+<a th:href="@{/categoria/new}">Nueva categoría</a><br/>
 <script>
     function changeCategory(){
         const select = document.getElementById("select");

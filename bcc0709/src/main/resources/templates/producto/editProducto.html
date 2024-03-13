@@ -8,28 +8,6 @@
     <link  rel="stylesheet" th:href="@{/css/tabla.css}"/>
 </head>
 <body>
-<div id="principal" class="col-sm-12" style="background-color:#F4FBEB;margin-right-color:#F4FBEB">
-    <div class="nav-expand-lg" id="menu">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/producto/list}"><strong>Inicio</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/contacta}"><strong>Contacta</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/quienessomos}"><strong>Quienes somos</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/producto/list}"><strong>Productos</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  th:href="@{/categoria/}"><strong>Categoria</strong></a>
-            </li>
-        </ul>
-    </div>
-</div>
-
 <h1>Editar Producto</h1>
 <form method="post" action="#" th:action="@{/producto/editar/{id}/submit(id=${productForm.id})}" th:object="${productForm}">
     <label>Id: <input type="text" id="id" th:field="*{id}" readonly /> </label><br/>
@@ -42,16 +20,19 @@
     </div>
     <label>Precio: <input type="text" id="precio" th:field="*{precio}" /></label><br/>
     <label>Categoria
-        <select name="categoria" th:field="*{idCategoria}">
+        <select name="categoria" th:field="*{categoria}">
             <option th:each="cat : ${listaCategorias}"
                     th:value="${cat.id}" th:text="${cat.nombre}">
             </option>
         </select>
     </label><br/>
-    <input type="submit" value="Enviar"/>
+    <input type="submit" value="Editar Producto"/>
 </form>
 <p th:text="${txtError}">error</p>
-<a th:href="@{/producto/}">Inicio</a><br/>
+<a th:href="@{/producto/}">Inicio Listado Productos</a><br/>
+<a th:href="@{/producto/new}">Nuevo producto</a><br/>
+<a th:href="@{/categoria/list}">Lista categorías</a><br/>
+<a th:href="@{/categoria/new}">Nueva categoría</a><br/>
 </body>
 </html>
 
