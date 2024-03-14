@@ -18,11 +18,10 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(of = "id")
 @Entity
 public class Usuario {
-    @NotNull
-    @Min(1)
+
     @Id
     @GeneratedValue
     private long id;
@@ -30,12 +29,11 @@ public class Usuario {
     @NotNull
     private String nombre;
 
-    @NotNull
     private LocalDate fechaRegistro;
-
-    public Usuario (Long id, String nombre){
+    public Usuario(Long id,String nombre) {
         this.id = id;
-        this.nombre= nombre;
-        this.fechaRegistro = LocalDate.now();
+        this.nombre = nombre;
+        this.fechaRegistro=LocalDate.now();
     }
 }
+

@@ -3,8 +3,10 @@ package com.example.app;
 import com.example.app.entity.Categoria;
 import com.example.app.entity.Producto;
 import com.example.app.entity.TipoIva;
+import com.example.app.entity.Usuario;
 import com.example.app.services.CategoriaService;
 import com.example.app.services.ProductoService;
+import com.example.app.services.UsuarioService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,10 +19,11 @@ public class MyappApplication {
 
 		SpringApplication.run(MyappApplication.class, args);
 	}
-	/*@Bean
-	CommandLineRunner initData(ProductoService productoService, CategoriaService categoriaService) {
+	@Bean
+	CommandLineRunner initData(ProductoService productoService, CategoriaService categoriaService,
+							   UsuarioService usuarioService) {
 		return args -> {
-			Categoria informatica = new Categoria(0L, "Informática");
+			/*Categoria informatica = new Categoria(0L, "Informática");
 			Categoria materialOficina = new Categoria(0L, "Material Oficina");
 			Categoria accesorios = new Categoria(0L, "Accesorios");
 
@@ -34,9 +37,9 @@ public class MyappApplication {
 					new Producto(2L, "cargador", true, TipoIva.NORMAL, 30D, accesorios));
 			productoService.añadir(
 					new Producto(3L, "mesa", false, TipoIva.NORMAL, 100D,materialOficina));
-
+*/
 
 
 		};
-	}*/
+	}
 }
