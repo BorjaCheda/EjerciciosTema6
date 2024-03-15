@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Entity
 public class ProductoValoracion implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     @ManyToOne
     @JoinColumn(name = "producto_id")

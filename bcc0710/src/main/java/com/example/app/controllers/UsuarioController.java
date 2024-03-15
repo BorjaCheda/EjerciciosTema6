@@ -51,13 +51,8 @@ public class UsuarioController {
         model.addAttribute("usuarioForm", usuarioAEditar);
         return "usuario/editUsuario";
     }
-    @PostMapping("/editar/{id}/submit")
-    public String showEditSubmit(@Valid Usuario usuarioForm, @PathVariable Long id, BindingResult bindingResult) {
-
-        usuarioForm.setFechaRegistro(LocalDate.now());
-        System.out.println(usuarioForm.getId());
-        System.out.println(usuarioForm.getNombre());
-        System.out.println(usuarioForm.getFechaRegistro());
+    @PostMapping("/editar/submit")
+    public String showEditSubmit(@Valid Usuario usuarioForm) {
 
         usuarioService.editar(usuarioForm);
         return "redirect:/usuario/";

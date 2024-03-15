@@ -1,9 +1,6 @@
 package com.example.app.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
@@ -23,17 +20,13 @@ import java.util.List;
 public class Usuario {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
 
     @NotNull
     private String nombre;
 
     private LocalDate fechaRegistro;
-    public Usuario(Long id,String nombre) {
-        this.id = id;
-        this.nombre = nombre;
-        this.fechaRegistro=LocalDate.now();
-    }
+
 }
 

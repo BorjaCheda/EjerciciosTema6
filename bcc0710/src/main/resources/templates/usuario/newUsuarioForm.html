@@ -11,7 +11,6 @@
 
 <h1>Nuevo Usuario</h1>
 <form method="post" action="#" th:action="@{/usuario/new/submit}" th:object="${usuarioForm}">
-    <label>Id: <input type="text" id="id" th:field="*{id}"/> </label><br/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
     <input type="submit" value="Crear Nuevo Usuario"/>
 </form>

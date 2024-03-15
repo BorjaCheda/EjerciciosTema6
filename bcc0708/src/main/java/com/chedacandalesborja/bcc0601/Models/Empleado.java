@@ -32,6 +32,7 @@ public class Empleado {
 
     private boolean enActivo;
 
+//    @Enumerated(EnumType.ORDINAL)
     private Genero genero;
 
     @ManyToOne

@@ -9,16 +9,15 @@
 </head>
 <body>
 <h1>Editar Usuario</h1>
-<form method="post" action="#" th:action="@{/usuario/editar/{id}/submit(id=${usuarioForm.id})}" th:object="${usuarioForm}">
-    <label>Id: <input type="text" id="id" th:field="*{id}" readonly /> </label><br/>
+<form method="post" action="#" th:action="@{/usuario/editar/submit}" th:object="${usuarioForm}">
+    <input type="text" id="id" th:field="*{id}" hidden/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+    <input type="text" id="fechaRegistro" th:field="*{fechaRegistro}" hidden/>
+
     <input type="submit" value="Editar Usuario"/>
 </form>
 <p th:text="${txtError}">error</p>
 <a th:href="@{/producto/}">Inicio</a><br/>
-<a th:href="@{/producto/new}">Nuevo producto</a><br/>
-<a th:href="@{/categoria/list}">Lista categorías</a><br/>
-<a th:href="@{/usuario/list}">Lista usuarios</a><br/>
 </body>
 </html>
 
