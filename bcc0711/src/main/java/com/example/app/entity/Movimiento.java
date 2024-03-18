@@ -24,6 +24,9 @@ public class Movimiento {
     @Max(1000)
     private Double importe;
 
+    @ManyToOne
+    private Cuenta cuenta;
+
     public Movimiento(String IBAN, LocalDateTime fecha) {
         this.IBAN=IBAN;
         this.fecha=fecha;
