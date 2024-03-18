@@ -14,21 +14,23 @@
 <table class="text-center">
     <thead>
     <tr>
-        <th>ID</th>
+        <th>Producto Valorado</th>
         <th>Puntuación</th>
         <th>Comentarios</th>
+        <th>Nombre Usuario</th>
         <th>Borrar</th>
     </thead>
     <tbody>
     <tr th:each="elementos : ${listaUsuarioValoracion}">
-        <td th:text="${elementos.valoracion.id}">Id</td>
+        <td th:text="${elementos.producto.nombre}">Nombre</td>
         <td th:text="${elementos.valoracion.puntuacion}">Puntuacion</td>
         <td th:text="${elementos.valoracion.comentarios}">Comentario</td>
+        <td th:text="${elementos.usuario.nombre}">Nombre</td>
         <td><a th:href="@{/usuValor/borrar/{id}(id=${elementos.id})}">Borrar Valoracion</a></td>
     </tr>
     </tbody>
 </table>
 <a th:href="@{/producto/}">Inicio - Listado Productos</a><br/>
-<a th:href="@{/usuValor/new}">Nueva valoración</a><br/>
+<a th:href="@{/usuValor/new}">Nueva valoración</a>
 </body>
 </html>

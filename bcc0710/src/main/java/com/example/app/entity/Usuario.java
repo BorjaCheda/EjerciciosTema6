@@ -23,7 +23,6 @@ public class Usuario {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
 
-    @NotNull
     private String nombre;
 
     private LocalDate fechaRegistro;

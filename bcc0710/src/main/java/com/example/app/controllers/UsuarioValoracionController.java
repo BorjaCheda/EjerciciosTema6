@@ -1,7 +1,5 @@
 package com.example.app.controllers;
 
-import com.example.app.entity.Producto;
-import com.example.app.entity.ProductoValoracion;
 import com.example.app.entity.Usuario;
 import com.example.app.entity.UsuarioValoracion;
 import com.example.app.services.*;
@@ -20,15 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UsuarioValoracionController {
     @Autowired
     public UsuarioValoracionService usuarioValoracionService;
+    @Autowired
+    public ProductoValoracionService productoValoracionService;
 
     @Autowired
     public UsuarioService usuarioService;
 
     @Autowired
-    public ProductoService productoService;
-
-    @Autowired
     public ValoracionService valoracionService;
+   @Autowired
+   public ProductoService productoService;
 
     @GetMapping("/usu/{id}") // lista de valoraciones de un usuario
     public String showValorationsByUsu(@PathVariable long id, Model model) {
@@ -39,25 +38,25 @@ public class UsuarioValoracionController {
     }
 
     @GetMapping("/borrar/{id}")
-    public String showDeleteProd(@PathVariable long id) {
+    public String showDeleteUsu(@PathVariable long id) {
         usuarioValoracionService.borrar(usuarioValoracionService.obtenerPorId(id));
         return "redirect:/usuario/";
     }
 
     @GetMapping("/new")
-    public String showNewProdValor(Model model) {
+    public String showNewUsuValor(Model model) {
         model.addAttribute("usuarioValoracionForm", new UsuarioValoracion());
         model.addAttribute("listaUsuarios", usuarioService.obtenerTodos());
-        model.addAttribute("listaProductos", productoService.obtenerTodos());
         model.addAttribute("listaValoraciones", valoracionService.obtenerTodas());
+        model.addAttribute("listaProductos", productoService.obtenerTodos());
         return "usuarioValoracion/newUsuarioValoracionForm";
     }
     @PostMapping("/new/submit")
-    public String showNewProductoValoracionSubmit(@Valid UsuarioValoracion usuarioValoracionForm,
+    public String showNewUsuarioValoracionSubmit(@Valid UsuarioValoracion usuarioValoracionForm,
                                                   BindingResult bindingResult) {
-        System.out.println(usuarioValoracionForm);
         if (!bindingResult.hasErrors())
+            System.out.println(("Aqui no entras???"));
             usuarioValoracionService.añadir(usuarioValoracionForm);
-        return "redirect:/usuario/";
+        return "redirect:/usuValor/usu/{id}";
     }
 }

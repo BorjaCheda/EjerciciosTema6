@@ -2,6 +2,7 @@ package com.example.app.repositories;
 
 import com.example.app.entity.Producto;
 import com.example.app.entity.ProductoValoracion;
+import com.example.app.entity.Usuario;
 import com.example.app.entity.Valoracion;
 import org.springframework.data.jpa.repository.JpaRepository;
 

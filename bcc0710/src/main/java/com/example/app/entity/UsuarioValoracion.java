@@ -21,9 +21,14 @@ public class UsuarioValoracion implements Serializable {
     @JoinColumn(name = "usuario_id")
     @OnDelete(action= OnDeleteAction.CASCADE)
     private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "producto_id")
+    @OnDelete(action=OnDeleteAction.CASCADE)
+    private Producto producto;
+
     @ManyToOne
     @JoinColumn(name = "valoracion_id")
     @OnDelete(action=OnDeleteAction.CASCADE)
     private Valoracion  valoracion;
-
 }

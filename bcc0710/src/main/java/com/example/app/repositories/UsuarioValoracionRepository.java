@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface UsuarioValoracionRepository extends JpaRepository<UsuarioValoracion, Long> {
     List<UsuarioValoracion> findByUsuario (Usuario usuario);
+
+    List<UsuarioValoracion> findByProducto (Producto producto);
 }

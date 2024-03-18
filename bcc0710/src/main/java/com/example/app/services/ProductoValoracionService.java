@@ -2,6 +2,7 @@ package com.example.app.services;
 
 import com.example.app.entity.Producto;
 import com.example.app.entity.ProductoValoracion;
+import com.example.app.entity.Usuario;
 
 import java.util.List;
 

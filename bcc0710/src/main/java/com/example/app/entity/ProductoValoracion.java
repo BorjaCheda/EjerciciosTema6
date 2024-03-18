@@ -21,6 +21,7 @@ public class ProductoValoracion implements Serializable {
     @JoinColumn(name = "producto_id")
     @OnDelete(action= OnDeleteAction.CASCADE)
     private Producto producto;
+
     @ManyToOne
     @JoinColumn(name = "valoracion_id")
     @OnDelete(action=OnDeleteAction.CASCADE)

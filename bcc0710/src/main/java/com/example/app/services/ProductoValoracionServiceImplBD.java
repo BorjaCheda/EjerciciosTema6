@@ -2,6 +2,7 @@ package com.example.app.services;
 
 import com.example.app.entity.Producto;
 import com.example.app.entity.ProductoValoracion;
+import com.example.app.entity.Usuario;
 import com.example.app.entity.Valoracion;
 import com.example.app.repositories.ProductoValoracionRepository;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,4 @@ public class ProductoValoracionServiceImplBD implements ProductoValoracionServic
     public List<ProductoValoracion> obtenerPorProducto(Producto producto) {
         return productoValoracionRepository.findByProducto(producto);
     }
-
 }

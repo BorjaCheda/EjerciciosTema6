@@ -9,23 +9,24 @@
 </head>
 <body>
 <div class="container-fluid">
-<h1 class=" text-center">Nueva Valoracion de un Usuario</h1>
+<h1 class=" text-center">Nueva Valoracion</h1>
 <form method="post" action="#" th:action="@{/usuValor/new/submit}" th:object="${usuarioValoracionForm}">
-    <input type="text" id="idusuValor" th:field="*{id}" hidden/><br/>
-    <h2>Escoge el Usuario que va a realizar la Valoración:</h2>
+    <label>Id: <input type="text" id="idusuValor" th:field="*{id}" hidden/><br/></label>
+    <br/><h2>Listado de usuarios:</h2>
     <select name="list1" th:field="*{usuario}">
-        <option value="0">Escoge Usuario</option> <!--opcion por defecto-->
+        <option value="0">Selecciona tu usuario </option> <!--opcion por defecto-->
         <option th:each="usuario:${listaUsuarios}"
-                th:value="${usuario.id}" th:text="${usuario.nombre}"></option>
+                th:value="${usuario.id}"
+                th:text="${usuario.nombre}"></option>
     </select><br/>
-    <br/><h2>Escoge el producto</h2>
+    <h2>Lista Productos:</h2>
     <select name="list3" th:field="*{producto}">
-        <option value="0">Selecciona tu Producto a valorar</option> <!--opcion por defecto-->
+        <option value="0">Selecciona tu Producto</option> <!--opcion por defecto-->
         <option th:each="producto:${listaProductos}"
                 th:value="${producto.id}"
                 th:text="${producto.nombre}"></option>
     </select><br/>
-   <br/><h2>Valoración del Producto:</h2>
+    <h2>Valoración del Producto:</h2>
     <select name="list3" th:field="*{valoracion}">
         <option value="0">Selecciona tu valoración</option> <!--opcion por defecto-->
         <option th:each="valoracion:${listaValoraciones}"

@@ -2,9 +2,8 @@ package com.example.app.controllers;
 
 import com.example.app.entity.Producto;
 import com.example.app.entity.ProductoValoracion;
-import com.example.app.services.ProductoService;
-import com.example.app.services.ProductoValoracionService;
-import com.example.app.services.ValoracionService;
+import com.example.app.entity.Usuario;
+import com.example.app.services.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,8 +28,11 @@ public class ProductoValoracionController {
     @GetMapping("/prod/{id}") // lista de valoraciones de un producto
     public String showValorationsByProd(@PathVariable long id, Model model) {
         Producto p = productoService.obtenerPorId(id);
+
         model.addAttribute("listaProductoValoracion", productoValoracionService.obtenerPorProducto(p));
+        System.out.println(p);
         model.addAttribute("producto", p);
+
         return "productoValoracion/productoValoracionView";
     }
 
