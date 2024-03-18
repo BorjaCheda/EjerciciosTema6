@@ -8,15 +8,14 @@
 </head>
 <body>
 <div class="container">
-    <h1>Nuevo Movimiento</h1>
+    <h1>Nuevo Movimiento de la cuenta con IBAN: <span th:text="${IBAN}">*</span></h1>
     <form method="post" action="#" th:action="@{/movimiento/nuevo/submit}" th:object="${movimientoForm}">
         <div class="mb-3">
-            <label>ID: </label><br/>
+            <label>Id:</label><br/>
             <input type="text" id="id" th:field="*{id}"/>
         </div>
         <div class="mb-3">
-            <label>IBAN: </label><br/>
-            <input type="text" id="iban" th:field="*{IBAN}"/>
+            <input type="text" id="iban" th:field="*{IBAN}" hidden/>
         </div>
         <div class="mb-3">
             <label>Fecha:</label><br/>
@@ -30,6 +29,7 @@
         <input type="submit" value="Enviar" onclick="comprobarSaldo()"/>
     </form>
     <div class="mb-3">
+        <label>Saldo actual:</label>
         <span th:text="${saldoActual}" id="saldoActual">*</span>
     </div>
     <a th:href="@{/index}">Volver al inicio</a><br/>

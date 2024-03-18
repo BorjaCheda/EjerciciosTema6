@@ -20,11 +20,12 @@ public class Cuenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     @NotEmpty
     private String IBAN;
     private String alias;
     private Double saldo;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    private List<Movimiento> movimientos = new ArrayList<>();
+    private List<Movimiento> movimiento = new ArrayList<>();
 }

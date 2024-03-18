@@ -21,7 +21,7 @@ public class CuentaController {
     public MovimientoService movimientoService;
 
     @GetMapping({"/", "/list", ""})
-    public String showList(@RequestParam(required = false) Integer err, Model model) {
+    public String showList(Model model) {
 
         model.addAttribute("listaCuentas", cuentaService.obtenerTodos());
         model.addAttribute("listaMovimientos", movimientoService.obtenerTodos());
@@ -31,7 +31,7 @@ public class CuentaController {
     @GetMapping("/list/{idMov}")
     public String showListMovimientos(@PathVariable Long idMov, Model model) {
 
-        model.addAttribute("listaCuentas", cuentaService.findByMovimiento(idMov));
+        model.addAttribute("listaCuentas", cuentaService.findMovimientoById(idMov));
         model.addAttribute("listaMovimientos", movimientoService.obtenerTodos());
         model.addAttribute("movimientoSeleccionado", movimientoService.obtenerPorId(idMov));
 
@@ -74,10 +74,10 @@ public class CuentaController {
         return "redirect:/cuenta/";
     }
 
-    @GetMapping("/borrar/{IBAN}")
-    public String showDelete(@PathVariable String IBAN, Model model) {
+    @GetMapping("/borrar/{id}")
+    public String showDelete(@PathVariable Long id) {
 
-        cuentaService.borrar(IBAN);
+        cuentaService.borrar(id);
 
         return "redirect:/cuenta/";
     }

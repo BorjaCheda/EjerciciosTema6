@@ -3,6 +3,7 @@ package com.example.app;
 import com.example.app.entity.Cuenta;
 import com.example.app.entity.Movimiento;
 import com.example.app.services.CuentaService;
+import com.example.app.services.MovimientoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,26 +20,26 @@ public class MyappApplication {
 
 		SpringApplication.run(MyappApplication.class, args);
 	}
-	@Bean
-	CommandLineRunner initData(CuentaService cuentaService) {
+	/*@Bean
+	CommandLineRunner initData(CuentaService cuentaService, MovimientoService movimientoService) {
 		return args -> {
 
-			List<Movimiento> movimiento1 = new ArrayList<>();
-			List<Movimiento> movimiento2=new ArrayList<>();
-			movimiento1.add(new Movimiento(1l,"ES9121000418450200051332", LocalDateTime.of(2022, 12, 5, 12, 12), 150d));
-			movimiento1.add(new Movimiento(2l,"ES9121000418450200051332", LocalDateTime.of(2022, 11, 4, 12, 12), 380d));
-			movimiento2.add(new Movimiento(1l,"ES4875051428450854700340", LocalDateTime.of(2022, 10, 3, 12, 12), -125d));
-			movimiento2.add(new Movimiento(2l,"ES4875051428450854700340", LocalDateTime.of(2023, 8, 1, 12, 12), 180d));
+			Movimiento movimiento1 = movimientoService.agregar(new Movimiento(0l,"ES9121000418450200051332", LocalDateTime.of(2022, 12, 5, 12, 12), 150d));
+			Movimiento movimiento2 = movimientoService.agregar(new Movimiento(0l,"ES4875051428450854700340", LocalDateTime.of(2022, 11, 4, 12, 12), 380d));
 
+			List<Movimiento> movimientosCuenta1 = new ArrayList<>();
+			movimientosCuenta1.add(movimiento1);
 
+			List<Movimiento> movimientosCuenta2 = new ArrayList<>();
+			movimientosCuenta2.add(movimiento2);
 			cuentaService.agregar(
-					new Cuenta("ES9121000418450200051332", "cuentaManolo", 1000d, movimiento1));
+					new Cuenta(0l,"ES9121000418450200051332", "cuentaManolo", 1000d, movimientosCuenta1));
 			cuentaService.agregar(
-					new Cuenta("ES4875051428450854700340", "cuentaMaría", 1800d, movimiento2 ));
+					new Cuenta(0l, "ES4875051428450854700340", "cuentaMaría", 1800d, movimientosCuenta2));
 
 
 
 		};
-	}
+	}*/
 
 }

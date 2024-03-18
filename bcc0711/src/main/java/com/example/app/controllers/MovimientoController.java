@@ -34,8 +34,9 @@ public class MovimientoController {
     @GetMapping("/{IBAN}")
     public String showListInMovimiento(@PathVariable String IBAN, Model model) {
 
-        model.addAttribute("listaMovimientos", cuentaService.obtenerPorIBAN(IBAN).getMovimientos());
-        model.addAttribute("IBAN", IBAN);
+        Cuenta cuentaMovimientos = cuentaService.obtenerPorIBAN(IBAN);
+        model.addAttribute("listaMovimientos", cuentaMovimientos.getMovimiento());
+
         return "/movimiento/movimientoView";
     }
 
@@ -51,10 +52,10 @@ public class MovimientoController {
 
     @PostMapping("/nuevo/submit")
     public String showNewSubmit(@Valid Movimiento movimientoForm, String IBAN, BindingResult bindingResult){
-
         if (bindingResult.hasErrors()) return "/movimiento/error";
 
         cuentaService.modificarSaldo(movimientoForm, IBAN);
+        movimientoService.agregar(movimientoForm);
 
         return "redirect:/movimiento/" + movimientoForm.getIBAN();
     }

@@ -36,7 +36,7 @@
         <td th:text="${cuenta.alias}">alias</td>
         <td th:text="${cuenta.saldo}">saldo</td>
         <td><a th:href="@{/cuenta/editar/{IBAN}(IBAN=${cuenta.IBAN})}">Editar Alias</a></td>
-        <td><a th:href="@{/cuenta/borrar/{IBAN}(IBAN=${cuenta.IBAN})}">Borrar Cuenta</a></td>
+        <td><a th:href="@{/cuenta/borrar/{id}(id=${cuenta.id})}">Borrar Cuenta</a></td>
         <td ><a th:href="@{/movimiento/{IBAN}(IBAN=${cuenta.IBAN})}">Lista Movimientos</a></td>
     </tr>
     </tbody>

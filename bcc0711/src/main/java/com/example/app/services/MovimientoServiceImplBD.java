@@ -1,6 +1,5 @@
 package com.example.app.services;
 
-import com.example.app.entity.Cuenta;
 import com.example.app.entity.Movimiento;
 import com.example.app.repositories.MovimientoRepository;
 import org.springframework.stereotype.Service;
@@ -26,10 +25,5 @@ public class MovimientoServiceImplBD implements MovimientoService{
     @Override
     public Movimiento obtenerPorId(long id) {
         return repositorioMovimientos.findById(id).orElse(null);
-    }
-
-    @Override
-    public List<Movimiento> findByCuenta (Cuenta cuenta) {
-        return repositorioMovimientos.findByCuenta(cuenta);
     }
 }

@@ -33,43 +33,50 @@ public class CuentaServiceImplBD implements CuentaService {
     }
 
     @Override
-    public Cuenta obtenerPorIBAN(String IBAN) {
-      return repositorioCuentas.findById(IBAN).orElse(null);
+    public Cuenta obtenerPorIBAN(String IBAN) { return repositorioCuentas.findCuentaByIBAN(IBAN);
     }
 
     @Override
     public Cuenta editar(Cuenta cuenta) {
+
+        for (Cuenta c: repositorioCuentas.findAll()){
+            if (c.getIBAN().equalsIgnoreCase(cuenta.getIBAN())) {
+                cuenta.setId(c.getId());
+            }
+        }
+
         return repositorioCuentas.save(cuenta);
     }
 
     @Override
-    public void borrar (String IBAN) {
-            repositorioCuentas.deleteById(IBAN);
+    public void borrar(Long id) {
+        repositorioCuentas.deleteById(id);
     }
 
     @Override
     public void modificarSaldo(Movimiento movimiento, String IBAN) {
-
+        Cuenta cuenta= repositorioCuentas.findCuentaByIBAN(IBAN);
         if ((movimiento.getImporte() < 1000) || (movimiento.getImporte() > -300)){
-            Cuenta cuenta= repositorioCuentas.findById(IBAN).orElse(null);
+
                     Double nuevoSaldo = movimiento.getImporte() + cuenta.getSaldo();
                     if (nuevoSaldo >= 0){
                         cuenta.setSaldo(nuevoSaldo);
                         repositorioCuentas.save(cuenta);
                         if (movimiento.getFecha() == null) movimiento.setFecha(LocalDateTime.now());
                         List<Movimiento> nuevoMov = new ArrayList<>();
-                        if (cuenta.getMovimientos() == null){
+                        if (cuenta.getMovimiento() == null){
                             nuevoMov.add(movimiento);
                         } else {
-                            nuevoMov = cuenta.getMovimientos();
+                            nuevoMov = cuenta.getMovimiento();
                             nuevoMov.add(movimiento);
                         }
-                        cuenta.setMovimientos(nuevoMov);
+                        cuenta.setMovimiento(nuevoMov);
+                        System.out.println(cuenta);
                     }
                 }
             }
     @Override
-    public List<Cuenta> findByMovimiento(long idMov) {
-        return repositorioCuentas.finByMovimiento(idMov);
+    public Cuenta findMovimientoById(long idMov) {
+        return repositorioCuentas.findMovimientoById(idMov);
     }
 }
