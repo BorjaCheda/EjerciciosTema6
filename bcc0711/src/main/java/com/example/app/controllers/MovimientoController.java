@@ -50,11 +50,11 @@ public class MovimientoController {
     }
 
     @PostMapping("/nuevo/submit")
-    public String showNewSubmit(@Valid Movimiento movimientoForm, BindingResult bindingResult){
+    public String showNewSubmit(@Valid Movimiento movimientoForm, String IBAN, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()) return "/movimiento/error";
 
-        cuentaService.modificarSaldo(movimientoForm);
+        cuentaService.modificarSaldo(movimientoForm, IBAN);
 
         return "redirect:/movimiento/" + movimientoForm.getIBAN();
     }

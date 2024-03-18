@@ -31,5 +31,4 @@ public class Producto {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Categoria categoria;
 
-
 }

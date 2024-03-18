@@ -15,6 +15,6 @@ public interface CuentaService {
     Cuenta obtenerPorIBAN(String IBAN);
     Cuenta editar (Cuenta cuenta);
     void borrar (String IBAN);
-    void modificarSaldo(Movimiento movimiento);
+    void modificarSaldo(Movimiento movimiento, String IBAN);
     List<Cuenta> findByMovimiento(long idMov);
 }
