@@ -11,7 +11,7 @@
 <div class="container-fluid">
 <h1 class=" text-center">Nueva Valoracion</h1>
 <form method="post" action="#" th:action="@{/usuValor/new/submit}" th:object="${usuarioValoracionForm}">
-    <label>Id: <input type="text" id="idusuValor" th:field="*{id}" hidden/><br/></label>
+    <input type="text" id="idusuValor" th:field="*{id}" hidden/><br/>
     <br/><h2>Listado de usuarios:</h2>
     <select name="list1" th:field="*{usuario}">
         <option value="0">Selecciona tu usuario </option> <!--opcion por defecto-->

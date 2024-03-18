@@ -30,7 +30,6 @@ public class ProductoValoracionController {
         Producto p = productoService.obtenerPorId(id);
 
         model.addAttribute("listaProductoValoracion", productoValoracionService.obtenerPorProducto(p));
-        System.out.println(p);
         model.addAttribute("producto", p);
 
         return "productoValoracion/productoValoracionView";

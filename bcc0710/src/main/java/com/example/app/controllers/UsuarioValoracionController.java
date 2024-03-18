@@ -57,6 +57,6 @@ public class UsuarioValoracionController {
         if (!bindingResult.hasErrors())
             System.out.println(("Aqui no entras???"));
             usuarioValoracionService.añadir(usuarioValoracionForm);
-        return "redirect:/usuValor/usu/{id}";
+        return "redirect:/usuario/list";
     }
 }

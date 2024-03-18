@@ -12,12 +12,6 @@
 <h1 class=" text-center">Nueva Valoracion de un Producto</h1>
 <form method="post" action="#" th:action="@{/prodVal/new/submit}" th:object="${productoValoracionForm}">
     <input type="text" id="idprodval" th:field="*{id}" hidden/><br/>
-    <select name="list2" th:field="*{usuario}">
-        <option value="0">Usuario: </option> <!--opcion por defecto-->
-        <option th:each="usuario:${listaUsuarios}"
-                th:value="${usuario.id}"
-                th:text="${usuario.nombre}"></option>
-    </select><br/>
     <h2>Escoge el producto que quieres valorar:</h2>
     <select name="list1" th:field="*{producto}">
         <option value="0">Escoge Producto</option> <!--opcion por defecto-->
