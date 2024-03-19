@@ -2,34 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" rel="stylesheet">
 </head>
 <body>
 <div class="container">
     <h1>Nuevo Movimiento de la cuenta con IBAN: <span th:text="${IBAN}">*</span></h1>
-    <form method="post" action="#" th:action="@{/movimiento/nuevo/submit}" th:object="${movimientoForm}">
+    <form action="#" method="post" th:action="@{/movimiento/nuevo/submit}" th:object="${movimientoForm}">
         <div class="mb-3">
-            <label>Id:</label><br/>
-            <input type="text" id="id" th:field="*{id}"/>
-        </div>
-        <div class="mb-3">
-            <input type="text" id="iban" th:field="*{IBAN}" hidden/>
-        </div>
-        <div class="mb-3">
-            <label>Fecha:</label><br/>
-            <input type="text" id="fecha" th:field="*{fecha}" readonly />
+            <input hidden th:field="*{id}" type="text"/>
+            <input hidden th:field="*{IBAN}" type="text"/>
+            <input hidden th:field="*{fecha}" type="text"/>
         </div>
         <div class="mb-3">
             <label>Importe:</label><br/>
-            <input type="text" id="importe" th:field="*{importe}"/>
+            <input th:field="*{importe}" type="text"/>
         </div>
 
-        <input type="submit" value="Enviar" onclick="comprobarSaldo()"/>
+        <input onclick="comprobarSaldo()" type="submit" value="Enviar"/>
     </form>
     <div class="mb-3">
-        <label>Saldo actual: <span th:text="${saldoActual}" id="saldoActual">*</span> €.</label>
+        <label>Saldo actual: <span id="saldoActual" th:text="${saldoActual}">*</span> €.</label>
     </div>
     <a th:href="@{/index}">Volver al inicio</a><br/>
 </div>
@@ -39,7 +34,7 @@
         var importe = parseFloat(document.getElementById('importe').value);
         var saldoActual = parseFloat(document.getElementById('saldoActual').textContent);
 
-        if ((importe + saldoActual) < 0){
+        if ((importe + saldoActual) < 0) {
             alert("Movimiento no permitido. Saldo negativo!!!");
         }
     }

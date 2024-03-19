@@ -12,25 +12,27 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode (of = "id")
+@EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "Movimiento")
 public class Movimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String IBAN;
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime fecha;
     @Min(-300)
     @Max(1000)
     private Double importe;
 
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cuenta cuenta;
 
-    public Movimiento(String IBAN, LocalDateTime fecha) {
-        this.IBAN=IBAN;
-        this.fecha=fecha;
+    public Movimiento(String IBAN) {
+        this.IBAN = IBAN;
+
     }
 }

@@ -9,7 +9,8 @@ import java.util.List;
 @Service
 public interface MovimientoService {
     List<Movimiento> obtenerTodos();
-    Movimiento obtenerPorId(long id);
-    List<Movimiento> findByCuenta (Cuenta cuenta);
 
+    Movimiento obtenerPorId(Long id);
+
+    List<Movimiento> findMovimientoByIBAN(String IBAN);
 }

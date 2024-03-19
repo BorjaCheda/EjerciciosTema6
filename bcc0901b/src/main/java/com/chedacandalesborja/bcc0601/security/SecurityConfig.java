@@ -35,20 +35,6 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService users(PasswordEncoder passwordEncoder) {
-        UserDetails user = User.builder()
-                .username("user")
-                .password(passwordEncoder.encode("1234"))
-                .roles("USER")
-                .build();
-        UserDetails admin = User.builder()
-                .username("admin")
-                .password(passwordEncoder.encode("1234"))
-                .roles("USER", "ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(user, admin);
-    }
-    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.headers(headersConfigurer -> headersConfigurer
                 .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));

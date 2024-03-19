@@ -14,19 +14,19 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode (of = "IBAN")
+@EqualsAndHashCode(of = "IBAN")
 @Entity
 public class Cuenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @NotEmpty
     private String IBAN;
     private String alias;
     private Double saldo;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE,
-            mappedBy="cuenta")
-    private List<Movimiento> movimientos = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,
+            mappedBy = "cuenta")
+    private List<Movimiento> movimientos;
 }
