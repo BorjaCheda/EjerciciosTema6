@@ -60,6 +60,11 @@ public class EmpleadoController<id> {
         return "redirect:/list";
     }
 
+    @GetMapping("/accessError")
+    public String showError() {
+        return "accessError";
+    }
+
     @GetMapping("/listado1/{salario}")
     public String showListado1(@PathVariable Double salario, Model model) {
         List<Empleado> empleados = empleadoService.findBySalarioGreaterThanEqualOrderBySalario(salario);
