@@ -31,7 +31,7 @@ public class CuentaController {
     @GetMapping("/list/{idMov}")
     public String showListMovimientos(@PathVariable Long idMov, Model model) {
 
-        model.addAttribute("listaCuentas", cuentaService.findMovimientoById(idMov));
+        model.addAttribute("listaCuentas", cuentaService.findByMovimiento(idMov));
         model.addAttribute("listaMovimientos", movimientoService.obtenerTodos());
         model.addAttribute("movimientoSeleccionado", movimientoService.obtenerPorId(idMov));
 

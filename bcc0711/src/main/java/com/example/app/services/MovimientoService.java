@@ -10,5 +10,6 @@ import java.util.List;
 public interface MovimientoService {
     List<Movimiento> obtenerTodos();
     Movimiento obtenerPorId(long id);
-    Movimiento agregar(Movimiento movimiento);
+    List<Movimiento> findByCuenta (Cuenta cuenta);
+
 }

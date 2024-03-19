@@ -9,12 +9,11 @@ import java.util.List;
 @Service
 public interface CuentaService {
 
-
     Cuenta agregar(Cuenta cuenta);
     List<Cuenta> obtenerTodos();
     Cuenta obtenerPorIBAN(String IBAN);
     Cuenta editar (Cuenta cuenta);
     void borrar (Long id);
-    void modificarSaldo(Movimiento movimiento, String IBAN);
-    Cuenta findMovimientoById(long idMov);
+    void modificarSaldo(Movimiento movimiento);
+    List<Cuenta> findByMovimiento(long idMov);
 }

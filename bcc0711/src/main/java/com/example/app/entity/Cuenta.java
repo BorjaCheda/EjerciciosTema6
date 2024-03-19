@@ -26,6 +26,7 @@ public class Cuenta {
     private String alias;
     private Double saldo;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    private List<Movimiento> movimiento = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE,
+            mappedBy="cuenta")
+    private List<Movimiento> movimientos = new ArrayList<>();
 }

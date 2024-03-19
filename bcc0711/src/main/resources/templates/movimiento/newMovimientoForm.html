@@ -29,8 +29,7 @@
         <input type="submit" value="Enviar" onclick="comprobarSaldo()"/>
     </form>
     <div class="mb-3">
-        <label>Saldo actual:</label>
-        <span th:text="${saldoActual}" id="saldoActual">*</span>
+        <label>Saldo actual: <span th:text="${saldoActual}" id="saldoActual">*</span> €.</label>
     </div>
     <a th:href="@{/index}">Volver al inicio</a><br/>
 </div>

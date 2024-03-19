@@ -3,13 +3,12 @@ package com.example.app.services;
 import com.example.app.entity.Cuenta;
 import com.example.app.entity.Movimiento;
 import com.example.app.repositories.CuentaRepository;
+import com.example.app.repositories.MovimientoRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CuentaServiceImplBD implements CuentaService {
@@ -54,29 +53,34 @@ public class CuentaServiceImplBD implements CuentaService {
     }
 
     @Override
-    public void modificarSaldo(Movimiento movimiento, String IBAN) {
-        Cuenta cuenta= repositorioCuentas.findCuentaByIBAN(IBAN);
-        if ((movimiento.getImporte() < 1000) || (movimiento.getImporte() > -300)){
+    public void modificarSaldo(Movimiento movimiento) {
 
-                    Double nuevoSaldo = movimiento.getImporte() + cuenta.getSaldo();
-                    if (nuevoSaldo >= 0){
-                        cuenta.setSaldo(nuevoSaldo);
-                        repositorioCuentas.save(cuenta);
-                        if (movimiento.getFecha() == null) movimiento.setFecha(LocalDateTime.now());
-                        List<Movimiento> nuevoMov = new ArrayList<>();
-                        if (cuenta.getMovimiento() == null){
-                            nuevoMov.add(movimiento);
-                        } else {
-                            nuevoMov = cuenta.getMovimiento();
-                            nuevoMov.add(movimiento);
+        if ((movimiento.getImporte() < 1000) || (movimiento.getImporte() > -300)){
+                    for (Cuenta c: repositorioCuentas.findAll()) {
+                        if (c.getIBAN().equalsIgnoreCase(movimiento.getIBAN())) {
+                            Double nuevoSaldo = movimiento.getImporte() + c.getSaldo();
+                            if (nuevoSaldo >= 0) {
+                                c.setSaldo(nuevoSaldo);
+                                if (movimiento.getFecha() == null) movimiento.setFecha(LocalDateTime.now());
+                                List<Movimiento> nuevoMov = new ArrayList<>();
+                                if (c.getMovimientos() == null) {
+                                    nuevoMov.add(movimiento);
+                                } else {
+                                    nuevoMov = c.getMovimientos();
+                                    nuevoMov.add(movimiento);
+                                }
+                                c.setMovimientos(nuevoMov);
+                                System.out.println(c);
+                            }
                         }
-                        cuenta.setMovimiento(nuevoMov);
-                        System.out.println(cuenta);
                     }
                 }
+
             }
+
     @Override
-    public Cuenta findMovimientoById(long idMov) {
-        return repositorioCuentas.findMovimientoById(idMov);
+    public List<Cuenta> findByMovimiento(long idMov) {
+        return null;
     }
+
 }

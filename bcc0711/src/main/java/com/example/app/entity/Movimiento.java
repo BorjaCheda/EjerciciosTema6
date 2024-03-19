@@ -12,8 +12,9 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode (of = "IBAN")
+@EqualsAndHashCode (of = "id")
 @Entity
+@Table(name = "Movimiento")
 public class Movimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +25,7 @@ public class Movimiento {
     @Max(1000)
     private Double importe;
 
+    @ToString.Exclude
     @ManyToOne
     private Cuenta cuenta;
 

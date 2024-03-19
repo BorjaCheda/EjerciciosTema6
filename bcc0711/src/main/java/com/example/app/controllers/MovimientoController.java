@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
-
 @RequestMapping({"/movimiento"})
 @Controller
 public class MovimientoController {
@@ -35,7 +34,10 @@ public class MovimientoController {
     public String showListInMovimiento(@PathVariable String IBAN, Model model) {
 
         Cuenta cuentaMovimientos = cuentaService.obtenerPorIBAN(IBAN);
-        model.addAttribute("listaMovimientos", cuentaMovimientos.getMovimiento());
+        System.out.println(cuentaMovimientos);
+        System.out.println(movimientoService.findByCuenta(cuentaMovimientos));
+        model.addAttribute("listaMovimientos", movimientoService.findByCuenta(cuentaMovimientos));
+        model.addAttribute("IBAN", IBAN);
 
         return "/movimiento/movimientoView";
     }
@@ -51,12 +53,9 @@ public class MovimientoController {
     }
 
     @PostMapping("/nuevo/submit")
-    public String showNewSubmit(@Valid Movimiento movimientoForm, String IBAN, BindingResult bindingResult){
+    public String showNewSubmit(@Valid Movimiento movimientoForm, BindingResult bindingResult){
         if (bindingResult.hasErrors()) return "/movimiento/error";
-
-        cuentaService.modificarSaldo(movimientoForm, IBAN);
-        movimientoService.agregar(movimientoForm);
-
+        cuentaService.modificarSaldo(movimientoForm);
         return "redirect:/movimiento/" + movimientoForm.getIBAN();
     }
 }
