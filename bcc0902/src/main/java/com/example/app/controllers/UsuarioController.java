@@ -39,9 +39,15 @@ public class UsuarioController {
     @PostMapping("/nuevo/submit")
     public String showNewSubmit(@Valid Usuario usuarioForm, BindingResult bindingResult) {
 
+        Integer sizeUsuarios = usuarioService.obtenerTodos().size(); // Cogemos el tamaño de la Lista de Usuarios
+
         if (bindingResult.hasErrors()) return "/usuario/error";
 
         usuarioService.agregar(usuarioForm);
+
+        // En este If comprobamos que el tamaño sea el mismo de antes por si no se ha añadido ese usuario por algún motivo
+        // Ese motivo sería que el nombre está repetido.
+        if (sizeUsuarios == usuarioService.obtenerTodos().size()) return "/usuario/error";
 
         return "redirect:/usuario/list";
     }

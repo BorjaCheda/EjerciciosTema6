@@ -2,6 +2,8 @@ package com.example.app.services;
 
 import com.example.app.entity.Usuario;
 import com.example.app.repositories.UsuarioRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,13 +12,20 @@ import java.util.List;
 public class UsuarioServiceImplBD implements UsuarioService {
 
     private UsuarioRepository usuarioRepository;
+    private PasswordEncoder passwordEncoder;
 
-    public UsuarioServiceImplBD(UsuarioRepository usuarioRepository) {
+    public UsuarioServiceImplBD(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public Usuario agregar(Usuario usuario) {
+        if (usuarioRepository.findByNombre(usuario.getNombre()) != null) {
+            return null;
+        }
+        String passCrypted = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(passCrypted);
         return usuarioRepository.save(usuario);
     }
 
@@ -32,7 +41,14 @@ public class UsuarioServiceImplBD implements UsuarioService {
 
     @Override
     public Usuario editar(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+        String passCrypted = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(passCrypted);
+        try {
+            return usuarioRepository.save(usuario);
+        } catch (DataIntegrityViolationException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

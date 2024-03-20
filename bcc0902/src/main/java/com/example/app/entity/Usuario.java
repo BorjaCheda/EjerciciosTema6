@@ -22,4 +22,10 @@ public class Usuario {
     @Size(min = 4, message = "La Contraseña debe tener al menos 4 caracteres")
     private String password;
     private Rol rol;
+
+    public Usuario(String admin, String number, String admin1) {
+        this.nombre = admin;
+        this.password = number;
+        this.rol = Rol.valueOf(admin1);
+    }
 }

@@ -36,9 +36,10 @@ public class SecurityConfig {
                 headersConfigurer -> headersConfigurer
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
         http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/list").permitAll()
-                        .requestMatchers("/nuevo/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/editar/**", "/borrar/**", "/listado1/**", "/listado2/**", "/listado3").hasRole("ADMIN")
+                        .requestMatchers("/", "/index", "/cuenta", "/cuenta/", "/cuenta/list", "/movimiento/list", "/movimiento/{IBAN}").permitAll()
+                        .requestMatchers("/movimiento/**").hasAnyRole("ADMIN", "TITULAR", "USUARIO")
+                        .requestMatchers("/cuenta/**", "/movimiento/**").hasAnyRole("ADMIN", "TITULAR")
+                        .requestMatchers("/usuario/**").hasRole("ADMIN")
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/mysql-console/**").hasRole("ADMIN")
                         .anyRequest().authenticated())

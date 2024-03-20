@@ -9,17 +9,16 @@
 <body>
 <h1>Editar Usuario: <span th:text="${nombre}">*</span></h1>
 <form method="post" action="#" th:action="@{/usuario/editar/{id}/submit(id=${usuarioForm.id})}"  th:object="${usuarioForm}">
-        <input hidden id="id" th:field="*{usuario.id}" type="text"/>
+        <input hidden id="id" th:field="*{id}" type="text"/>
         <label>NOMBRE: </label><br/>
-        <input id="nombre" th:field="*{usuario.nombre}" type="text"/>
+        <input id="nombre" th:field="*{nombre}" type="text"/>
     </div>
     <div class="mb-3">
-        <label>CONTRASEÑA:</label><br/>
-        <input id="password" th:field="*{usuario.password}" type="text"/>
+        <input id="password" th:field="*{password}" type="text" hidden=""/>
     </div>
     Rol:<br/>
     <div class="mb-3" th:each="rol : ${T(com.example.app.entity.Rol).values()}">
-        <input name="button1" th:field="*{usuario.rol}" th:text="${rol}" th:value="${rol}"
+        <input name="button1" th:field="*{rol}" th:text="${rol}" th:value="${rol}"
                type="radio"/>
     </div>
     <input type="submit" value="Enviar"/>

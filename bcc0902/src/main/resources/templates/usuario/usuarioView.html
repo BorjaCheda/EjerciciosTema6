@@ -15,7 +15,7 @@
                 <a class="nav-link" th:href="@{/index}"><strong>Inicio</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/cuenta}"><strong>Listado Cuentas</strong></a>
+                <a class="nav-link" th:href="@{/cuenta/}"><strong>Listado Cuentas</strong></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/usuario}"><strong>Listado Usuarios</strong></a>
@@ -38,7 +38,7 @@
     <tr th:each="usuario : ${listaUsuarios}">
         <td th:text="${usuario.id}">Id</td>
         <td th:text="${usuario.nombre}">Nombre</td>
-        <td th:text="${usuario.password}">Contraseña</td>
+        <td>******</td>
         <td th:text="${usuario.rol}">Rol</td>
         <td><a th:href="@{/usuario/editar/{id}(id=${usuario.id})}">Editar Usuario</a></td>
         <td><a th:href="@{/usuario/borrar/{id}(id=${usuario.id})}">Borrar Usuario</a></td>
