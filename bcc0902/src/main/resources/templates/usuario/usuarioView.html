@@ -23,31 +23,29 @@
         </ul>
     </div>
 </div>
-<p>Iniciar Sesión: <a th:href="@{/login}">Login</a></p>
-<p>Cerrar Sesión: <a th:href="@{/logout}">Logout</a></p>
-<p>Listado de cuentas</p>
+<h1>Listado de cuentas</h1>
 <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">IBAN</th>
-        <th scope="col">Alias</th>
-        <th scope="col">Saldo</th>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Contraseña</th>
+        <th scope="col">Rol</th>
         <th scope="col">Editar</th>
         <th scope="col">Borrar</th>
-        <th scope="col">Movimientos</th>
     </thead>
     <tbody>
-    <tr th:each="cuenta : ${listaCuentas}">
-        <td th:text="${cuenta.IBAN}">IBAN</td>
-        <td th:text="${cuenta.alias}">alias</td>
-        <td th:text="${cuenta.saldo}">saldo</td>
-        <td><a th:href="@{/cuenta/editar/{IBAN}(IBAN=${cuenta.IBAN})}">Editar Alias</a></td>
-        <td><a th:href="@{/cuenta/borrar/{id}(id=${cuenta.id})}">Borrar Cuenta</a></td>
-        <td><a th:href="@{/movimiento/{IBAN}(IBAN=${cuenta.IBAN})}">Lista Movimientos</a></td>
+    <tr th:each="usuario : ${listaUsuarios}">
+        <td th:text="${usuario.id}">Id</td>
+        <td th:text="${usuario.nombre}">Nombre</td>
+        <td th:text="${usuario.password}">Contraseña</td>
+        <td th:text="${usuario.rol}">Rol</td>
+        <td><a th:href="@{/usuario/editar/{id}(id=${usuario.id})}">Editar Usuario</a></td>
+        <td><a th:href="@{/usuario/borrar/{id}(id=${usuario.id})}">Borrar Usuario</a></td>
     </tr>
     </tbody>
 </table>
 <a th:href="@{/index}">Inicio</a><br/>
-<a th:href="@{/cuenta/nuevo}">Nueva Cuenta</a><br/>
+<a th:href="@{/usuario/nuevo}">Nuevo Usuario</a><br/>
 </body>
 </html>
