@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-    @GetMapping ({"/", "/index"})
-    public String showMain (){
+    @GetMapping({"/", "/index"})
+    public String showMain() {
         return "indexView";
     }
+
+    @GetMapping({"/accessError"})
+    public String showError() {
+        return "accessError";
+    }
 }
+
