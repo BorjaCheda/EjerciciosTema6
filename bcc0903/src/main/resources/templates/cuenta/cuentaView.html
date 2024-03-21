@@ -23,8 +23,9 @@
         </ul>
     </div>
 </div>
-<p>Inicia Sesión: <a th:href="@{/login}">Login</a></p>
-<p>Cierra Sesión: <a th:href="@{/logout}">Logout</a></p>
+
+<p><a class="btn btn-primary btn-block m-4" th:href="@{/signin}">Iniciar Sesión</a>
+    <a class="btn btn-primary btn-block m-4" th:href="@{/signout}">Cerrar Sesión</a></p>
 <p>Listado de cuentas</p>
 <table class="table table-striped">
     <thead>

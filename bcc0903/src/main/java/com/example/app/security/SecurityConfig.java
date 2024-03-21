@@ -43,12 +43,13 @@ public class SecurityConfig {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/mysql-console/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
-                .formLogin(formLogin -> formLogin
-                        .defaultSuccessUrl("/", true)
-                        .permitAll())
-                .logout(logout -> logout
-                        .logoutSuccessUrl("/")
-                        .permitAll())
+                .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer
+                        .loginPage("/signin") // mapping par mostrar formulario de login
+                        .loginProcessingUrl("/login") // ruta post de /signin
+                        .failureUrl("/signin")
+                        .defaultSuccessUrl("/", true).permitAll())
+                .logout((logout) -> logout
+                        .logoutSuccessUrl("/").permitAll())
                 .rememberMe(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         http.exceptionHandling(exceptions -> exceptions.accessDeniedPage("/accessError"));
