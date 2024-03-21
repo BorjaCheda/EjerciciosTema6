@@ -5,8 +5,11 @@ import com.example.app.entity.Cuenta;
 import com.example.app.entity.Movimiento;
 import com.example.app.services.CuentaService;
 import com.example.app.services.MovimientoService;
+import com.example.app.services.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +26,8 @@ public class MovimientoController {
     public MovimientoService movimientoService;
     @Autowired
     public CuentaService cuentaService;
+    @Autowired
+    public UsuarioService usuarioService;
 
     @GetMapping({"/", "/list", ""})
     public String showList(Model model) {
@@ -50,9 +55,18 @@ public class MovimientoController {
 
     @PostMapping("/nuevo/submit")
     public String showNewSubmit(@Valid Movimiento movimientoForm, BindingResult bindingResult) {
+
         if (bindingResult.hasErrors()) return "/movimiento/error";
-        cuentaService.modificarSaldo(movimientoForm);
-        return "redirect:/movimiento/" + movimientoForm.getIBAN();
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserRol = authentication.getAuthorities().toString();
+        System.out.println(currentUserRol);
+        if (currentUserRol.equals("[ROLE_USUARIO]") && movimientoForm.getImporte() < 0) {
+            return "accessError";
+        } else {
+            cuentaService.modificarSaldo(movimientoForm);
+            return "redirect:/movimiento/" + movimientoForm.getIBAN();
+        }
     }
 }
 

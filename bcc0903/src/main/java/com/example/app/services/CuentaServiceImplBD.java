@@ -4,6 +4,8 @@ import com.example.app.entity.Cuenta;
 import com.example.app.entity.Movimiento;
 import com.example.app.repositories.CuentaRepository;
 import com.example.app.repositories.MovimientoRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -62,8 +64,6 @@ public class CuentaServiceImplBD implements CuentaService {
         if ((movimiento.getImporte() < 1000) || (movimiento.getImporte() > -300)) {
             Cuenta c = repositorioCuentas.findCuentaByIBAN(movimiento.getIBAN());
             if (c.getId() != null && c.getId() != 0) {
-
-
                 Double nuevoSaldo = movimiento.getImporte() + c.getSaldo();
                 if (nuevoSaldo >= 0) {
                     c.setSaldo(nuevoSaldo);
@@ -74,9 +74,7 @@ public class CuentaServiceImplBD implements CuentaService {
                     c.getMovimientos().add(movimiento);
                     repositorioCuentas.save(c);
                 }
-
             }
-
         }
     }
 
