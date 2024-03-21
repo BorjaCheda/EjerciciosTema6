@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity"
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -23,8 +24,10 @@
         </ul>
     </div>
 </div>
-
-<p><a class="btn btn-primary btn-block m-4" th:href="@{/signin}">Iniciar Sesión</a>
+<p sec:authorize="!isAuthenticated()">
+    <a class="btn btn-primary btn-block m-4" th:href="@{/signin}">Iniciar Sesión</a></p>
+<p sec:authorize="isAuthenticated()">
+    Usuario conectado: <span sec:authentication="name">*</span>
     <a class="btn btn-primary btn-block m-4" th:href="@{/signout}">Cerrar Sesión</a></p>
 <p>Listado de cuentas</p>
 <table class="table table-striped">

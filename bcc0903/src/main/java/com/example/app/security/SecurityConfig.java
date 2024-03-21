@@ -47,9 +47,9 @@ public class SecurityConfig {
                         .loginPage("/signin") // mapping par mostrar formulario de login
                         .loginProcessingUrl("/login") // ruta post de /signin
                         .failureUrl("/signin")
-                        .defaultSuccessUrl("/", true).permitAll())
+                        .defaultSuccessUrl("/cuenta", true).permitAll())
                 .logout((logout) -> logout
-                        .logoutSuccessUrl("/").permitAll())
+                        .logoutSuccessUrl("/cuenta").permitAll())
                 .rememberMe(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         http.exceptionHandling(exceptions -> exceptions.accessDeniedPage("/accessError"));
