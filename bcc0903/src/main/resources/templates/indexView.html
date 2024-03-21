@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>main</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" rel="stylesheet">
+</head>
+<body style="border-left: 50px;">
+<div class="col-sm-12" id="principal" style="background-color:#F4FBEB;margin-right-color:#F4FBEB">
+    <div class="nav-expand-lg" id="menu">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}"><strong>Inicio</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/cuenta/}"><strong>Listado Cuentas</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/usuario}"><strong>Listado Usuarios</strong></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<p>
+    Desde esta página únicamente podrás acceder a las cuentas. En esa nueva página podrás realizar las operaciones que
+    necesites.
+</p>
+
+</body>
+</html>
