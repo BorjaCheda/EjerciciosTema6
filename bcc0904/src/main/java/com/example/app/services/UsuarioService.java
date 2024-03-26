@@ -15,4 +15,6 @@ public interface UsuarioService {
 
     void borrar (long id);
 
+    Usuario findByNombre(String username);
+
 }

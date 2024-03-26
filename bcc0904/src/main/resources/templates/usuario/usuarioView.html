@@ -15,6 +15,7 @@
     <tr>
         <th>ID</th>
         <th>Nombre</th>
+        <th>Rol en la empresa</th>
         <th>Valoraciones del Usuario</th>
         <th>Editar</th>
         <th>Borrar</th>
@@ -23,6 +24,7 @@
     <tr th:each="usuario : ${listaUsuarios}">
         <td th:text="${usuario.id}">Id</td>
         <td th:text="${usuario.nombre}">nombre</td>
+        <td th:text="${usuario.rol}">rol</td>
         <td><a th:href="@{/usuValor/usu/{id}(id=${usuario.id})}">Valoraciones</a></td>
         <td><a th:href="@{/usuario/editar/{id}(id=${usuario.id})}">Editar Usuario</a></td>
         <td><a th:href="@{/usuario/borrar/{id}(id=${usuario.id})}">Borrar Usuario</a></td>

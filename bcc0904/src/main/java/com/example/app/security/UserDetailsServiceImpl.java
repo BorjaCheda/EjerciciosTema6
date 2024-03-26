@@ -17,12 +17,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepository.findByNombre(nombre);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findByNombre(username);
         if (usuario == null)
             throw (new UsernameNotFoundException("Usuario no encontrado!"));
         return User
-                .withUsername(nombre)
+                .withUsername(username)
                 .roles(usuario.getRol().toString())
                 .password(usuario.getPassword())
                 .build();

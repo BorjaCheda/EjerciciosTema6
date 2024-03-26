@@ -12,6 +12,12 @@
 <form method="post" action="#" th:action="@{/usuario/editar/submit}" th:object="${usuarioForm}">
     <input type="text" id="id" th:field="*{id}" hidden/>
     <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
+    <label>CONTRASEÑA:<input id="password" th:field="*{password}" type="text"/></label><br/>
+    ROL:<br/>
+    <div class="mb-3" th:each="rol : ${T(com.example.app.entity.Rol).values()}">
+        <input name="button1" th:field="*{rol}" th:text="${rol}" th:value="${rol}"
+               type="radio"/>
+    </div>
     <input type="text" id="fechaRegistro" th:field="*{fechaRegistro}" hidden/>
 
     <input type="submit" value="Editar Usuario"/>

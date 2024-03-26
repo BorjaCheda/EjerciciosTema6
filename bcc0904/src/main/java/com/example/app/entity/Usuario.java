@@ -31,5 +31,10 @@ public class Usuario {
 
     private Rol rol;
 
+    public Usuario(String nombre, String password, String rol) {
+        this.nombre = nombre;
+        this.password=password;
+        this.rol = Rol.valueOf(rol);
+    }
 }
 

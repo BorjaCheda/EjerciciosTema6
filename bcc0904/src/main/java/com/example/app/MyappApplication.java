@@ -1,10 +1,7 @@
 package com.example.app;
 
 import com.example.app.entity.*;
-import com.example.app.services.CategoriaService;
-import com.example.app.services.ProductoService;
-import com.example.app.services.UsuarioService;
-import com.example.app.services.ValoracionService;
+import com.example.app.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +15,7 @@ public class MyappApplication {
 		SpringApplication.run(MyappApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner initData(ValoracionService valoracionService) {
+	CommandLineRunner initData(ValoracionService valoracionService, UsuarioService usuarioService) {
 		return args -> {
 			/*Categoria informatica = new Categoria(0L, "Informática");
 			Categoria materialOficina = new Categoria(0L, "Material Oficina");
@@ -35,19 +32,6 @@ public class MyappApplication {
 			productoService.añadir(
 					new Producto(3L, "mesa", false, TipoIva.NORMAL, 100D,materialOficina));
 */
-			valoracionService.añadir(new Valoracion(0L,0,"Es malísimo"));
-			valoracionService.añadir(new Valoracion(0L,1,"No funciona bien"));
-			valoracionService.añadir(new Valoracion(0L,2,"Tiene muchos defectos"));
-			valoracionService.añadir(new Valoracion(0L,3,"Es muy irregular"));
-			valoracionService.añadir(new Valoracion(0L,4,"Está defectuoso"));
-			valoracionService.añadir(new Valoracion(0L,5,"Regulero"));
-			valoracionService.añadir(new Valoracion(0L,6,"Puede safar"));
-			valoracionService.añadir(new Valoracion(0L,7,"Bastante bueno"));
-			valoracionService.añadir(new Valoracion(0L,8,"Bueno"));
-			valoracionService.añadir(new Valoracion(0L,9,"Casi Perfecto"));
-			valoracionService.añadir(new Valoracion(0L,10,"Un espectáculo de producto"));
-
-
 		};
 	}
 }

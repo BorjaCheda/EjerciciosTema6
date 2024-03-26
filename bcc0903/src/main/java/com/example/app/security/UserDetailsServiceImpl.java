@@ -13,6 +13,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UsuarioRepository usuarioRepository;
 
     public UserDetailsServiceImpl(UsuarioRepository usuarioRepository) {
+
         this.usuarioRepository = usuarioRepository;
     }
 

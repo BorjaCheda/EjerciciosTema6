@@ -10,8 +10,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -38,20 +36,20 @@ public class SecurityConfig {
                 headersConfigurer -> headersConfigurer
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
         http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/index", "/cuenta", "/cuenta/", "/cuenta/list", "/movimiento/list", "/movimiento/{IBAN}").permitAll()
-                        .requestMatchers("/movimiento/**").hasAnyRole("ADMIN", "TITULAR", "USUARIO")
-                        .requestMatchers("/cuenta/**", "/movimiento/**").hasAnyRole("ADMIN", "TITULAR")
+                        .requestMatchers("/producto/", "/producto/list", "/categoria/", "/categoria/list").permitAll()
+                        .requestMatchers("/valoracion/", "/valoracion/list", "/valoracion/new").hasAnyRole("USER", "MANAGER", "ADMIN")
+                        .requestMatchers("/producto/**", "/categoria/**", "/valoracion/**").hasAnyRole("ADMIN", "MANAGER")
                         .requestMatchers("/usuario/**").hasRole("ADMIN")
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/mysql-console/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer
-                        .loginPage("/signin") // mapping par mostrar formulario de login
+                        .loginPage("/signin") // mapping para mostrar formulario de login
                         .loginProcessingUrl("/login") // ruta post de /signin
                         .failureUrl("/signin")
-                        .defaultSuccessUrl("/cuenta", true).permitAll())
+                        .defaultSuccessUrl("/producto/", true).permitAll())
                 .logout((logout) -> logout
-                        .logoutSuccessUrl("/cuenta").permitAll())
+                        .logoutSuccessUrl("/producto/").permitAll())
                 .rememberMe(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         http.exceptionHandling(exceptions -> exceptions.accessDeniedPage("/accessError"));
