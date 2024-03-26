@@ -9,8 +9,8 @@
 </head>
 <body>
 <div class="container">
-    <h1>Crear Nuevo Usuario</h1>
-    <form action="#" method="post" th:action="@{/usuario/new/submit}" th:object="${usuarioForm}">
+    <h1>Autocrear Nuevo Usuario</h1>
+    <form action="#" method="post" th:action="@{/registro/nuevo/submit}" th:object="${usuarioForm}">
         <div class="mb-3">
             <input hidden id="id" th:field="*{id}" type="text"/>
             <label>Nombre: </label><br/>
@@ -20,12 +20,10 @@
             <label>CONTRASEÑA:</label><br/>
             <input id="password" th:field="*{password}" type="text"/>
         </div>
-        ROL:<br/>
-        <div class="mb-3" th:each="rol : ${T(com.example.app.entity.Rol).values()}">
-            <input name="button1" th:field="*{rol}" th:text="${rol}" th:value="${rol}"
-                   type="radio"/>
+        <div class="mb-3">
+            <input id="rol" th:field="*{rol}" type="text" hidden/>
         </div>
-        <input type="submit" value="Crear Nuevo Usuario"/>
+        <input type="submit" value="Auto-Crear Nuevo Usuario"/>
     </form>
     <a th:href="@{/producto/}">Volver al Inicio</a><br/>
     <a th:href="@{/producto/new}">Nuevo producto</a><br/>

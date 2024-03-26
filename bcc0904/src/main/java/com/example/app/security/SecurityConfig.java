@@ -36,7 +36,7 @@ public class SecurityConfig {
                 headersConfigurer -> headersConfigurer
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
         http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/producto/", "/producto/list", "/categoria/", "/categoria/list").permitAll()
+                        .requestMatchers("/registro/nuevo/**","/producto/", "/producto/list", "/categoria/", "/categoria/list").permitAll()
                         .requestMatchers("/valoracion/", "/valoracion/list", "/valoracion/new").hasAnyRole("USER", "MANAGER", "ADMIN")
                         .requestMatchers("/producto/**", "/categoria/**", "/valoracion/**").hasAnyRole("ADMIN", "MANAGER")
                         .requestMatchers("/usuario/**").hasRole("ADMIN")
