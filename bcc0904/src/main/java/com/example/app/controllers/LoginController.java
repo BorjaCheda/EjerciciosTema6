@@ -43,7 +43,7 @@ public class LoginController {
     @PostMapping("/registro/nuevo/submit")
     public String showNewSubmit(@Valid Usuario usuarioForm) {
 
-        if (usuarioService.findByNombre(usuarioForm.getNombre()) != null){
+        if (usuarioService.findByNombre(usuarioForm.getNombre()) != null) {
             return "userDuplicated";
         }
         usuarioForm.setRol(Rol.valueOf("USER"));
