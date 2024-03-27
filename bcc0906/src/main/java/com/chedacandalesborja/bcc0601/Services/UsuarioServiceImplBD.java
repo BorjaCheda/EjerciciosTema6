@@ -1,12 +1,10 @@
-package com.example.app.services;
+package com.chedacandalesborja.bcc0601.Services;
 
-import com.example.app.entity.Usuario;
-import com.example.app.repositories.UsuarioRepository;
+import com.chedacandalesborja.bcc0601.Models.Usuario;
+import com.chedacandalesborja.bcc0601.Repositories.UsuarioRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-
 
 import java.util.List;
 
@@ -22,8 +20,6 @@ public class UsuarioServiceImplBD implements UsuarioService{
 
     @Override
     public Usuario añadir(Usuario usuario) {
-        if (usuarioRepository.findByNombre(usuario.getNombre()) != null)
-            return null; //ya existe ese nombre de usuario
         String passCrypted = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(passCrypted);
         return usuarioRepository.save(usuario);
@@ -35,13 +31,12 @@ public class UsuarioServiceImplBD implements UsuarioService{
     }
 
     @Override
-    public Usuario obtenerPorId(long id) {
+    public Usuario obtenerPorId(Long id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 
     @Override
     public Usuario editar(Usuario usuario) {
-
         String passCrypted = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(passCrypted);
         try {
@@ -51,15 +46,15 @@ public class UsuarioServiceImplBD implements UsuarioService{
             e.printStackTrace();
             return null;
         }
-
     }
 
     @Override
-    public void borrar(long id) {
+    public void borrar(Long id) {
         usuarioRepository.deleteById(id);
     }
 
     @Override
-    public Usuario findByNombre(String username) { return usuarioRepository.findByNombre(username);
+    public Usuario findByNombre(String nombre) {
+        return usuarioRepository.findByNombre(nombre);
     }
 }
