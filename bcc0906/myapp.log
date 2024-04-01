@@ -127,3 +127,6 @@
 2024-03-27T17:43:54.268+01:00  INFO 4284 --- [http-nio-8085-exec-1] c.c.b.Controllers.UsuarioController      : Estás mostrando el listado de Usuarios!
 2024-03-27T17:43:59.424+01:00  WARN 4284 --- [http-nio-8085-exec-3] c.c.b.Controllers.UsuarioController      : Ojo! Vas a editar a un usuario?
 2024-03-27T17:44:20.689+01:00  INFO 4284 --- [http-nio-8085-exec-6] c.c.b.Controllers.UsuarioController      : Estás mostrando el listado de Usuarios!
+2024-03-27T17:53:11.292+01:00  INFO 4284 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-27T17:53:11.295+01:00  INFO 4284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-27T17:53:11.300+01:00  INFO 4284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
