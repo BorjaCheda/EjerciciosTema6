@@ -27,5 +27,9 @@ public class Usuario {
 
     private LocalDate fechaRegistro;
 
+    private String password;
+
+    private Rol rol;
+
 }
 

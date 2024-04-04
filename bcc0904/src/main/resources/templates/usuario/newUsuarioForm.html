@@ -8,12 +8,27 @@
     <link  rel="stylesheet" th:href="@{/css/tabla.css}"/>
 </head>
 <body>
-
-<h1>Nuevo Usuario</h1>
-<form method="post" action="#" th:action="@{/usuario/new/submit}" th:object="${usuarioForm}">
-    <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}" /></label><br/>
-    <input type="submit" value="Crear Nuevo Usuario"/>
-</form>
+<div class="container">
+    <h1>Crear Nuevo Usuario</h1>
+    <form action="#" method="post" th:action="@{/usuario/new/submit}" th:object="${usuarioForm}">
+        <div class="mb-3">
+            <input hidden id="id" th:field="*{id}" type="text"/>
+            <label>Nombre: </label><br/>
+            <input id="nombre" th:field="*{nombre}" type="text"/>
+        </div>
+        <div class="mb-3">
+            <label>CONTRASEÑA:</label><br/>
+            <input id="password" th:field="*{password}" type="text"/>
+        </div>
+        ROL:<br/>
+        <div class="mb-3" th:each="rol : ${T(com.example.app.entity.Rol).values()}">
+            <input name="button1" th:field="*{rol}" th:text="${rol}" th:value="${rol}"
+                   type="radio"/>
+        </div>
+        <input type="submit" value="Crear Nuevo Usuario"/>
+    </form>
+    <a th:href="@{/index}">Volver al inicio</a><br/>
+</div>
 <a th:href="@{/producto/}">Inicio</a><br/>
 <a th:href="@{/producto/new}">Nuevo producto</a><br/>
 <a th:href="@{/categoria/list}">Lista categorías</a><br/>
