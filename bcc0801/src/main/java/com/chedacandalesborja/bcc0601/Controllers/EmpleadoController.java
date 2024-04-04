@@ -4,6 +4,8 @@ import com.chedacandalesborja.bcc0601.Models.Empleado;
 import com.chedacandalesborja.bcc0601.Services.EmpleadoServiceImplBD;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,79 +13,54 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-public class EmpleadoController<id> {
+@RestController
+public class EmpleadoController {
 
     @Autowired
     public EmpleadoServiceImplBD empleadoService;
 
-    @GetMapping ({"/", "/list"})
-    public String showList (Model model){
-        model.addAttribute("listaEmpleados", empleadoService.obtenerTodos());
-        return "listView";
+    @GetMapping("/empleado")
+    public ResponseEntity<?> getList() {
+        List<Empleado> listaEmpleados = empleadoService.obtenerTodos();
+        if (listaEmpleados.isEmpty())
+            return ResponseEntity.notFound().build(); // cod 404
+        else
+            return ResponseEntity.ok(listaEmpleados); // cod 200
     }
-
-    @GetMapping ("/nuevo")
-    public String showNew (Model model){
-        model.addAttribute("empleadoForm", new Empleado());
-        return "newFormView";
-    }
-
-    @PostMapping("/nuevo/submit")
-    public String showNewSubmit (@Valid Empleado empleadoForm, BindingResult bindingResult){
-        if (bindingResult.hasErrors()) return "redirect:/nuevo";
-        empleadoService.añadir(empleadoForm);
-        return "redirect:/list";
-    }
-
-    @GetMapping("/editar/{id}")
-    public String showEditForm (@PathVariable long id, Model model ){
+    @GetMapping("/empleado/{id}")
+    public ResponseEntity<?> getOneElement(@PathVariable Long id) {
         Empleado empleado = empleadoService.obtenerPorId(id);
-
-        if (empleado != null){
-            model.addAttribute("empleadoForm", empleado);
-            return "editFormView";
+        if (empleado == null)
+            return ResponseEntity.notFound().build(); // cod 404
+        else
+            return ResponseEntity.ok(empleado); // cod 200
+    }
+    @PostMapping("/empleado")
+    public ResponseEntity<?> newElement(@Valid @RequestBody Empleado nuevoEmpleado) {
+        //@Valid si no se cumple la validación devuelve BAD_REQUEST cod 400
+        Empleado empleado = empleadoService.añadir(nuevoEmpleado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(empleado); // cod 201
+    }
+    @PutMapping("/empleado/{id}")
+    public ResponseEntity<?> editElement(@Valid @RequestBody Empleado editEmpleado,
+                                         @PathVariable Long id) {
+        //@Valid si no se cumple la validación devuelve BAD_REQUEST cod 400
+        Empleado empleado = empleadoService.obtenerPorId(id);
+        if (empleado == null)
+            return ResponseEntity.notFound().build(); // cod 404
+        else {
+            empleado = empleadoService.editar(editEmpleado);
+            return ResponseEntity.ok(empleado); // cod 200
         }
-        return "redirect:/";
     }
-
-    @PostMapping("/editar/{id}/submit")
-    public String showEditSubmit(@Valid Empleado empleadoForm, @PathVariable Long id, BindingResult bindingResult) {
-        if (!bindingResult.hasErrors())
-            empleadoService.editar(empleadoForm);
-        return "redirect:/list";
-
-    }
-    @GetMapping("/borrar/{id}")
-    public String showDelete(@PathVariable long id) {
+    @DeleteMapping("/empleado/{id}")
+    public ResponseEntity<?> deleteElement(@PathVariable Long id) {
+        Empleado empleado = empleadoService.obtenerPorId(id);
+        if (empleado == null)
+            return ResponseEntity.notFound().build(); // cod 404
         empleadoService.borrar(id);
-        return "redirect:/list";
+        return ResponseEntity.noContent().build(); // cod 204
     }
-
-    @GetMapping("/listado1/{salario}")
-    public String showListado1(@PathVariable Double salario, Model model) {
-        List<Empleado> empleados = empleadoService.findBySalarioGreaterThanEqualOrderBySalario(salario);
-        model.addAttribute("tituloListado", "Empleados salario mayor que: " +
-                salario.toString() + "€:");
-        model.addAttribute("listaEmpleados", empleados);
-        return "listView";
-    }
-    @GetMapping("/listado2")
-    public String showListado2(Model model) {
-        List<Empleado> empleados = empleadoService.obtenerEmpleadoSalarioMayorMedia();
-        model.addAttribute("tituloListado", "Empleados salario mayor que la media:");
-        model.addAttribute("listaEmpleados", empleados);
-        return "listView";
-    }
-    @GetMapping("/listado3")
-    public String showListado3(Model model) {
-        List<Empleado> empleados = empleadoService.obtenerEmpleadosConLetraA();
-        model.addAttribute("tituloListado", "Empleados que tengan en su nombre la letra A:");
-        model.addAttribute("listaEmpleados", empleados);
-        return "listView";
-    }
-
-
 
 
 
