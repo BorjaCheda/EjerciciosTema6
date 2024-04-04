@@ -38,9 +38,12 @@ public class UsuarioController {
     }
     @PostMapping("/new/submit")
     public String showNewSubmit(@Valid Usuario usuarioForm) {
-
+        if (usuarioService.findByNombre(usuarioForm.getNombre()) != null){
+            return "userDuplicated";
+        }
         usuarioForm.setFechaRegistro(LocalDate.now());
         usuarioService.añadir(usuarioForm);
+
         return "redirect:/usuario/list";
     }
 
@@ -54,7 +57,12 @@ public class UsuarioController {
     @PostMapping("/editar/submit")
     public String showEditSubmit(@Valid Usuario usuarioForm) {
 
+        if (usuarioService.findByNombre(usuarioForm.getNombre()) != null){
+            return "userDuplicated";
+        }
+
         usuarioService.editar(usuarioForm);
+
         return "redirect:/usuario/";
     }
     @GetMapping("/borrar/{id}")

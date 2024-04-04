@@ -34,7 +34,7 @@ public class MyappApplication {
 					new Producto(2L, "cargador", true, TipoIva.NORMAL, 30D, accesorios));
 			productoService.añadir(
 					new Producto(3L, "mesa", false, TipoIva.NORMAL, 100D,materialOficina));
-*/
+
 			valoracionService.añadir(new Valoracion(0L,0,"Es malísimo"));
 			valoracionService.añadir(new Valoracion(0L,1,"No funciona bien"));
 			valoracionService.añadir(new Valoracion(0L,2,"Tiene muchos defectos"));
@@ -47,7 +47,7 @@ public class MyappApplication {
 			valoracionService.añadir(new Valoracion(0L,9,"Casi Perfecto"));
 			valoracionService.añadir(new Valoracion(0L,10,"Un espectáculo de producto"));
 
-
+			 */
 		};
 	}
 }

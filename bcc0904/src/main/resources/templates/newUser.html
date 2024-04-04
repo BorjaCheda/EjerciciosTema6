@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link  rel="stylesheet" th:href="@{/css/tabla.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1>Autocrear Nuevo Usuario</h1>
+    <form action="#" method="post" th:action="@{/registro/nuevo/submit}" th:object="${usuarioForm}">
+        <div class="mb-3">
+            <input hidden id="id" th:field="*{id}" type="text"/>
+            <label>Nombre: </label><br/>
+            <input id="nombre" th:field="*{nombre}" type="text"/>
+        </div>
+        <div class="mb-3">
+            <label>CONTRASEÑA:</label><br/>
+            <input id="password" th:field="*{password}" type="text"/>
+        </div>
+        <div class="mb-3">
+            <input id="rol" th:field="*{rol}" type="text" hidden/>
+        </div>
+        <input type="submit" value="Auto-Crear Nuevo Usuario"/>
+    </form>
+    <a th:href="@{/producto/}">Volver al Inicio</a><br/>
+    <a th:href="@{/producto/new}">Nuevo producto</a><br/>
+    <a th:href="@{/categoria/list}">Lista categorías</a><br/>
+    <a th:href="@{/categoria/new}">Nueva categoría</a><br/>
+    <a th:href="@{/usuario/list}">Lista usuarios</a><br/>
+</div>
+</body>
+</html>
+
