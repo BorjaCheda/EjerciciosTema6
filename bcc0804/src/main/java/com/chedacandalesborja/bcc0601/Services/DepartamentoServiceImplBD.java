@@ -36,4 +36,9 @@ public class DepartamentoServiceImplBD implements DepartamentoService{
     public void borrar(Long id) {
         departamentoRepository.deleteById(id);
     }
+
+    @Override
+    public Departamento obtenerPorNombre(String nombre) {
+        return departamentoRepository.findByNombre(nombre);
+    }
 }

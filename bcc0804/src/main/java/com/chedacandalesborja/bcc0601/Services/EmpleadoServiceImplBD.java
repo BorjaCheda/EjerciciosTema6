@@ -35,4 +35,23 @@ public class EmpleadoServiceImplBD implements EmpleadoService{
         repositorioEmpleados.deleteById(id);
     }
 
+    @Override
+    public List<Empleado> findBySalarioGreaterThanEqualOrderBySalario(double salario) {
+        return repositorioEmpleados.findBySalarioGreaterThanEqualOrderBySalario(salario);
+    }
+
+    @Override
+    public List <Empleado> obtenerEmpleadoSalarioMayorMedia() {
+        return repositorioEmpleados.obtenerEmpleadoSalarioMayorMedia();
+    }
+
+    @Override
+    public List<Empleado> obtenerEmpleadosSalarioMayorMedia() {
+        return null;
+    }
+
+    @Override
+    public List<Empleado> obtenerEmpleadosConLetraA() {
+        return repositorioEmpleados.obtenerEmpleadosConLetraA();
+    }
 }

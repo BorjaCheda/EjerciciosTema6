@@ -1,10 +1,15 @@
 package com.chedacandalesborja.bcc0601.Controllers;
 
 import com.chedacandalesborja.bcc0601.Models.Departamento;
+import com.chedacandalesborja.bcc0601.Models.Empleado;
 import com.chedacandalesborja.bcc0601.Services.DepartamentoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,7 +39,7 @@ public class DepartamentoController {
     }
     @PostMapping("")
     public ResponseEntity<?> newElement(@RequestBody Departamento nuevoDepartamento) {
-
+        //@Valid si no se cumple la validación devuelve BAD_REQUEST cod 400
         Departamento departamento = departamentoService.añadir(nuevoDepartamento);
         return ResponseEntity.status(HttpStatus.CREATED).body(departamento); // cod 201
     }

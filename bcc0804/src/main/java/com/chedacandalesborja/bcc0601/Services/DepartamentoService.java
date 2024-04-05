@@ -10,4 +10,5 @@ public interface DepartamentoService {
     Departamento obtenerPorId(Long id);
     Departamento editar(Departamento departamento);
     void borrar(Long id);
+    Departamento obtenerPorNombre(String nombre);
 }
