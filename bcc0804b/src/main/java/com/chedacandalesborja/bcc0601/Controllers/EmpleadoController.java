@@ -32,21 +32,14 @@ public class EmpleadoController {
 
     @GetMapping("/empleado")
     public List<Empleado> getList() {
-        List<Empleado> listaEmpleados;
-        try {
-            listaEmpleados = empleadoService.obtenerTodos();
-        } catch (EmptyEmpleadosException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
-        }
+        List<Empleado> listaEmpleados = empleadoService.obtenerTodos();
         return listaEmpleados;
     }
     @GetMapping("/empleado/{id}")
     public Empleado getOneElement(@PathVariable Long id) {
-        try {
+
             return empleadoService.obtenerPorId(id);
-        } catch (EmpleadoNotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
-        }
+
     }
     @PostMapping("/empleado")
     public ResponseEntity<?> newElement(@RequestBody EmpleadoNuevoDto empleadoNuevoDto) {
@@ -55,16 +48,15 @@ public class EmpleadoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(empleadoSaved);
     }
     @PutMapping("/empleado/{id}")
-    public ResponseEntity<?> editElement(@RequestBody EmpleadoNuevoDto editEmpleado,
+    public Empleado editElement(@RequestBody EmpleadoNuevoDto editEmpleado,
                                          @PathVariable Long id) {
-        Empleado empleado = empleadoService.obtenerPorId(id);
-        if (empleado == null)
-            return ResponseEntity.notFound().build(); // cod 404
-        else {
-            empleado = empleadoDtoConverter.convertDtoToEmpleado(editEmpleado, id);
-            Empleado empleadoSaved = empleadoService.editar(empleado);
-            return ResponseEntity.ok(empleadoSaved); // cod 200
-        }
+
+            empleadoService.obtenerPorId(id);
+
+            Empleado empleadoSaved = empleadoDtoConverter.convertDtoToEmpleado(editEmpleado, id);
+
+            return empleadoService.editar(empleadoSaved);
+
     }
     @DeleteMapping("/empleado/{id}")
     public List<Empleado> deleteElement(@PathVariable Long id) {
